@@ -20,7 +20,7 @@ class Register extends React.Component {
   render() {
     return (
       <div className={style.continer}>
-        <div className={style.ViewImage}>
+        <div>
           <img
             src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
             alt="oqod"
