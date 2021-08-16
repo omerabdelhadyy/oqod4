@@ -1,0 +1,68 @@
+.continer {
+  /* width: max-content; */
+  margin: 10%;
+  margin-top: 20px;
+  /* background-color: cadetblue; */
+}
+.form {
+  /* background-color: red; */
+  align-items: center;
+  margin: 0px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.textReg {
+  font-size: 30px;
+  line-height: 40px;
+  margin: 0%;
+}
+.line {
+  background-color: #eeeeee;
+  height: 2px;
+  width: 80%;
+  display: inline-flex;
+}
+.inputs {
+  display: inline-flexbox;
+  /* background-color: red; */
+  justify-content: center;
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+.TextField {
+  width: 100%;
+  background-color: #ececec;
+  /* background-color: red; */
+}
+.textLabel {
+  text-align: left;
+  margin: 0%;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #353840;
+}
+.input1 {
+  width: 50%;
+  margin: 10px;
+  /* display: block; */
+}
+.Checkbox {
+  /* background-color: red; */
+  width: 50%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.textAccept {
+  font-size: 12px;
+  margin-left: 10px;
+}
+a:visited {
+  color: #a3906b;
+}
+a {
+  color: hotpink;
+  text-decoration: none;
+}
