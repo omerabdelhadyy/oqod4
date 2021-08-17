@@ -11,8 +11,8 @@ class estate extends React.Component {
         <img
           style={{ borderRadius: 10, marginTop: 10 }}
           src="https://png.pngtree.com/background/20210711/original/pngtree-network-information-electronic-technology-background-picture-image_1096792.jpg"
-          width={150}
-          height={70}
+          width={200}
+          height={80}
         />
         <div className={style.divCArdRow}>
           <p>Price: $450</p>
@@ -23,7 +23,7 @@ class estate extends React.Component {
               color: "#fff",
               textAlign: "center",
               textTransform: "capitalize",
-              borderRadius: 10,
+              borderRadius: 5,
               // width: 70,
               // height: 20,
             }}

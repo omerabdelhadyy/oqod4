@@ -1,10 +1,12 @@
 .continer {
-  background-color: #fff;
+  background-color: #ffffff;
   width: fit-content;
   padding: 10px;
   border-radius: 10px;
   padding-block: 20px;
-  margin: 20px;
+  margin: 6px;
+  overflow: hidden;
+  margin-left: 50px;
 }
 .divCArdRow {
   display: flex;
@@ -29,4 +31,12 @@ h1 {
   justify-content: space-between;
   width: 100%;
   align-items: center;
+}
+.pReal {
+  width: 160px;
+  color: #6e737e;
+  text-align: left;
+  /* background-color: red; */
+  padding-left: 10px;
+  font-size: 10px;
 }

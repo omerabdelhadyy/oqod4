@@ -13,6 +13,7 @@
 }
 a {
   text-align: center;
+  color: #fff;
 }
 .image {
   background-image: url("https://png.pngtree.com/background/20210711/original/pngtree-network-information-electronic-technology-background-picture-image_1096792.jpg");
@@ -34,7 +35,76 @@ p {
   font-size: 8px;
 }
 .estates {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  /* background-color: #2196f3; */
+  /* padding: 10px; */
+  padding-inline: 30px;
+  justify-content: space-between;
+  text-align: center;
+}
+.textabout {
+  text-align: center;
+  margin-top: 20px;
+}
+.textreal {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 16px;
+  margin-left: 30px;
+  padding-bottom: 20px;
+}
+.Realestate {
+  text-align: center;
+}
+h3 {
+  background: #5f9ea0;
+  color: #fff;
+  font-size: 36px;
+  line-height: 100px;
+  margin: 10px;
+  padding: 2%;
+  position: relative;
+  text-align: center;
+}
+.footer {
+  width: 1200px auto;
+  height: 200px;
+  background-color: #b19f7b;
+  padding-top: 30px;
+  padding-inline: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+.continerAbout {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  margin: 20px;
+  height: fit-content;
+  /* padding-inline: 20px; */
+  justify-content: space-between;
+  /* align-items: center; */
+}
+h2 {
+  font-size: 14px;
+  color: #fff;
+}
+.textPrivacy {
+  /* background-color: red; */
+  align-self: flex-end;
   text-align: center;
   display: flex;
-  columns: 2;
+  flex-direction: row;
+  width: 200px;
+  justify-content: space-between;
+  margin: 20px;
+  margin-block: 20px;
+}
+.linkFooter {
+  color: #fff;
 }
