@@ -33,26 +33,32 @@ class Register extends React.Component {
           <div className={style.line}></div>
           <div className={style.inputs}>
             <TextField
+              width="100%"
               label="Full Name"
               value={(Full_Name) => this.setState({ Full_Name })}
             />
             <TextField
+              width="100%"
               label="Email"
               value={(Email) => this.setState({ Email })}
             />
             <TextField
+              width="100%"
               label="National ID"
               value={(National_ID) => this.setState({ National_ID })}
             />
             <TextField
+              width="100%"
               label="Phone Number"
               value={(Phone_Number) => this.setState({ Phone_Number })}
             />
             <TextField
+              width="100%"
               label="Password"
               value={(Password) => this.setState({ Password })}
             />
             <TextField
+              width="100%"
               label="Repeat Password"
               value={(Repeat_Password) => this.setState({ Repeat_Password })}
             />

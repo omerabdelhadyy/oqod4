@@ -309,7 +309,11 @@ class Map extends React.Component {
       map = (
         <div>
           <div style={{ width: "100%" }}>
-            <TextField placeHolder={this.state.address} label="Address" />
+            <TextField
+              placeHolder={this.state.address}
+              label="Address"
+              width={"100%"}
+            />
             {/* <div className="form-group">
               <label htmlFor="">City</label>
               <input

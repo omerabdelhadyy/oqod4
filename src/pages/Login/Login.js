@@ -29,11 +29,13 @@ class Login extends React.Component {
           <div className={style.line}></div>
           <div className={style.inputs}>
             <TextField
+              width="100%"
               label="Email"
               value={(Email) => this.setState({ Email })}
             />
 
             <TextField
+              width="100%"
               label="Password"
               value={(Password) => this.setState({ Password })}
             />
