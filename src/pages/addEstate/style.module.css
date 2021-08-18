@@ -1,0 +1,15 @@
+.continer {
+  margin: 10%;
+  margin-top: 20px;
+  /* text-align: center; */
+}
+.inputs {
+  /* background-color: red; */
+  display: inline-flexbox;
+  /* background-color: red; */
+  justify-content: center;
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}

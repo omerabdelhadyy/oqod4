@@ -12,15 +12,25 @@ class textField extends React.Component {
     };
   }
   render() {
-    const { label, value } = this.props;
+    const { label, value, placeHolder } = this.props;
     return (
-      <div className={style.input1}>
+      <div
+        className={style.input1}
+        style={{
+          width: label == "Address" ? "100%" : "50%",
+          margin: label == "Address" ? 0 : 10,
+        }}
+      >
         <h1 className={style.textLabel}>{label}</h1>
         {label != "Password" && label != "Repeat Password" ? (
           <TextField
+            defaultValue={placeHolder}
+            multiline={true}
+            style={{ fontSize: 4 }}
+            disabled={label == "Address" && true}
             onChange={(t) => value(t.target.value)}
             id="filled-basic"
-            label={label}
+            label={label != "Address" && label}
             variant="outlined"
             className={style.TextField}
             size="small"

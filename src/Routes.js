@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
+import AddEstate from "./pages/addEstate/addEstate";
 
 class Routes extends Component {
   constructor() {
@@ -25,6 +26,7 @@ class Routes extends Component {
     return (
       <BrowserRouter>
         <Switch>
+          <Route path={"/Create"} component={AddEstate} />
           <Route path={"/Home"} component={Home} />
           <Route path={"/Login"} component={Login} />
           <Route path={"/"} component={Register} />
