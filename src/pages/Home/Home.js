@@ -5,6 +5,7 @@ import Estate from "../../compoonent/estates/estate";
 import Realestate from "../../compoonent/estates/realEstates";
 import Slider from "react-slick";
 import Header from "../../compoonent/header";
+import Footer from "../../compoonent/footer";
 
 class Home extends React.Component {
   render() {
@@ -120,84 +121,7 @@ class Home extends React.Component {
             </Slider>
           </div>
         </div>
-        <div className={style.footer}>
-          <div>
-            <img
-              src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
-              alt="oqod"
-              width="160"
-              height="55"
-            />
-          </div>
-          <div className={style.continerAbout}>
-            <div>
-              <h2>
-                <a
-                  style={{ color: "#fff" }}
-                  href={""}
-                  class="button"
-                  // onClick={() => this.props.history.push("/")}
-                >
-                  About
-                </a>
-              </h2>
-              <h2>
-                <a
-                  style={{ color: "#fff" }}
-                  href={""}
-                  class="button"
-                  // onClick={() => this.props.history.push("/")}
-                >
-                  How it works
-                </a>
-              </h2>
-            </div>
-            <div>
-              <h2>
-                <a
-                  style={{ color: "#fff" }}
-                  href={""}
-                  class="button"
-                  // onClick={() => this.props.history.push("/")}
-                >
-                  Blog
-                </a>
-              </h2>
-              <h2>
-                <a
-                  style={{ color: "#fff" }}
-                  href={""}
-                  class="button"
-                  // onClick={() => this.props.history.push("/")}
-                >
-                  Contact Us
-                </a>
-              </h2>
-            </div>
-          </div>
-          <div className={style.textPrivacy}>
-            <h2>
-              <a
-                style={{ color: "#fff" }}
-                href={""}
-                class="button"
-                // onClick={() => this.props.history.push("/")}
-              >
-                Privacy Policy
-              </a>
-            </h2>
-            <h2>
-              <a
-                style={{ color: "#fff" }}
-                href={""}
-                class="button"
-                // onClick={() => this.props.history.push("/")}
-              >
-                Terms of Use
-              </a>
-            </h2>
-          </div>
-        </div>
+        <Footer />
       </>
     );
   }

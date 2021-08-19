@@ -86,3 +86,9 @@ div p {
   align-items: center;
   justify-content: center;
 }
+.divRelated {
+  padding: 20px;
+}
+.textLink {
+  font-size: 11px;
+}
