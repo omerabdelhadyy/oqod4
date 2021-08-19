@@ -4,20 +4,21 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import AddEstate from "./pages/addEstate/addEstate";
+import HomeWorks from "./pages/HomeWorks/HomeWorks";
 
 class Routes extends Component {
   constructor() {
     super();
     this.state = {
-      redirectToLogin: false,
+      // redirectToLogin: false,
     };
   }
 
   componentDidMount = async () => {
-    const usertoken = await window.sessionStorage.getItem("usertoken");
-    if (!usertoken) {
-      this.setState({ redirectToLogin: true });
-    }
+    // const usertoken = await window.sessionStorage.getItem("usertoken");
+    // if (!usertoken) {
+    //   this.setState({ redirectToLogin: true });
+    // }
   };
 
   render() {
@@ -26,6 +27,7 @@ class Routes extends Component {
     return (
       <BrowserRouter>
         <Switch>
+          <Route path={"/HomeWorks"} component={HomeWorks} />
           <Route path={"/Create"} component={AddEstate} />
           <Route path={"/Home"} component={Home} />
           <Route path={"/Login"} component={Login} />

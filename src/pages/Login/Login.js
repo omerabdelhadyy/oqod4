@@ -56,16 +56,21 @@ class Login extends React.Component {
             >
               Log in
             </Button>
-            <p>
-              Don’t have an account yet?
-              <a
-                href={""}
-                class="button"
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <p>Don’t have an account yet?</p>
+
+              <p
+                style={{ cursor: "pointer", marginLeft: 3, color: "hotpink" }}
                 onClick={() => this.props.history.push("/")}
               >
-                {`\r`} Register
-              </a>
-            </p>
+                Register
+              </p>
+            </div>
           </div>
         </div>
       </div>

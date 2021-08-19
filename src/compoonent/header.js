@@ -12,36 +12,32 @@ class header extends React.Component {
           width="160"
           height="55"
         />
-        <a
-          href={""}
-          class="button"
-          onClick={() => this.props.history.push("/")}
+        <p
+          className={style.ButtonHeader}
+          // onClick={() => this.props.history.push("/")}
         >
-          {`\r`} About
-        </a>
-        <a
-          href={""}
-          class="button"
-          onClick={() => this.props.history.push("/")}
+          About
+        </p>
+        <p
+          className={style.ButtonHeader}
+          onClick={() => this.props.push("/HomeWorks")}
         >
-          {`\r`} Home it works
-        </a>
-        <a
-          href={""}
-          class="button"
-          onClick={() => this.props.history.push("/")}
+          Home it works
+        </p>
+        <p
+          className={style.ButtonHeader}
+          // onClick={() => this.props.history.push("/")}
         >
-          {`\r`} Blogs
-        </a>
-        <a
-          href={""}
-          class="button"
-          onClick={() => this.props.history.push("/")}
+          Blogs
+        </p>
+        <p
+          className={style.ButtonHeader}
+          // onClick={() => this.props.history.push("/")}
         >
-          {`\r`} Countact Us
-        </a>
+          Countact Us
+        </p>
         <Button
-          onClick={() => this.props.push("Create")}
+          onClick={() => this.props.push("/Create")}
           style={{
             backgroundColor: "#AE9B77",
             fontSize: "12px",

@@ -10,7 +10,7 @@ import Geocode from "react-geocode";
 import Autocomplete from "react-google-autocomplete";
 import TextField from "../compoonent/textField";
 
-Geocode.setApiKey("AIzaSyDmkVuOmlEvNRti5e_oNMWhIdWuwVc92u4");
+Geocode.setApiKey("");
 Geocode.enableDebug();
 class Map extends React.Component {
   constructor(props) {
@@ -360,7 +360,7 @@ class Map extends React.Component {
             </div> */}
           </div>
           <AsyncMap
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmkVuOmlEvNRti5e_oNMWhIdWuwVc92u4&libraries=places"
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=&libraries=places"
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: this.props.height }} />}
             mapElement={<div style={{ height: `100%` }} />}

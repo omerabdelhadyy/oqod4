@@ -40,7 +40,7 @@ class Home extends React.Component {
                 <br /> adipiscing elit, sed do eiusmod.
               </p>
               <Button
-                onClick={() => this.onClickLogin()}
+                onClick={() => this.props.history.push("/Create")}
                 style={{
                   backgroundColor: "#fff",
                   fontSize: "12px",

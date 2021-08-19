@@ -82,16 +82,21 @@ class Register extends React.Component {
             >
               Register
             </Button>
-            <p>
-              Already have an account ?
-              <a
-                href={""}
-                class="button"
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <p>Already have an account ?</p>
+
+              <p
+                style={{ cursor: "pointer", marginLeft: 3, color: "hotpink" }}
                 onClick={() => this.props.history.push("/Login")}
               >
-                {`\r`} Log in
-              </a>
-            </p>
+                Log in
+              </p>
+            </div>
           </div>
         </div>
       </div>
