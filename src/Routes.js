@@ -5,13 +5,12 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import AddEstate from "./pages/addEstate/addEstate";
 import HomeWorks from "./pages/HomeWorks/HomeWorks";
+import Profile from "./pages/profile/profile";
 
 class Routes extends Component {
   constructor() {
     super();
-    this.state = {
-      // redirectToLogin: false,
-    };
+    this.state = {};
   }
 
   componentDidMount = async () => {
@@ -27,6 +26,7 @@ class Routes extends Component {
     return (
       <BrowserRouter>
         <Switch>
+          <Route path={"/Profile"} component={Profile} />
           <Route path={"/HomeWorks"} component={HomeWorks} />
           <Route path={"/Create"} component={AddEstate} />
           <Route path={"/Home"} component={Home} />

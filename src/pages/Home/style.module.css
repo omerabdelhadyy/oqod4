@@ -113,3 +113,9 @@ h2 {
   font-size: 12px;
   /* color: red; */
 }
+.divUserCard {
+  cursor: pointer;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+}
