@@ -18,7 +18,7 @@ a {
 .image {
   background-image: url("https://png.pngtree.com/background/20210711/original/pngtree-network-information-electronic-technology-background-picture-image_1096792.jpg");
   height: 220px;
-  width: 99%;
+  width: auto;
   margin-left: 10px;
   border-radius: 10px;
   margin-top: 10px;
@@ -111,6 +111,7 @@ h2 {
 .ButtonHeader {
   cursor: pointer;
   font-size: 12px;
+  text-align: center;
   /* color: red; */
 }
 .divUserCard {
@@ -118,4 +119,105 @@ h2 {
   /* background-color: red; */
   display: flex;
   align-items: center;
+  font-size: 10px;
+  /* width: 10%; */
+  /* justify-content: center; */
+  text-align: center;
+  /* font-size: 9px; */
+}
+.ImageUser {
+  margin-inline: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+.ButtonList {
+  border: none;
+  cursor: pointer;
+  background-color: #ae9b77;
+  font-size: 12px;
+  width: 137px;
+  height: 45px;
+  color: #fff;
+  text-align: "center";
+  text-transform: "capitalize";
+  border-radius: 10px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+  border-color: rgb(148, 133, 133);
+  border-color: rgb(138, 113, 93);
+}
+.ButtonList:hover {
+  /* forced-color-adjust: red; */
+}
+
+@media only screen and (max-width: 900px) {
+  /* For mobile phones: */
+  .ButtonHeader {
+    font-size: 10px;
+  }
+  .divUserCard {
+    display: inline;
+    width: 7%;
+    font-size: 10px;
+  }
+  .ImageUser {
+    margin-inline: 0px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+  }
+  .ButtonList {
+    width: 100px;
+    height: 45px;
+    font-size: 9px;
+    /* background-color: red; */
+  }
+  .Logo {
+    width: 120px;
+    height: 45px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  /* For mobile phones: */
+  .ButtonHeader {
+    font-size: 8px;
+    /* color: red; */
+  }
+  .divUserCard {
+    display: inline;
+    width: 7%;
+    font-size: 8px;
+    /* background-color: red; */
+  }
+  .ImageUser {
+    margin-inline: 0px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+  }
+  .ButtonList {
+    /* width: 80px; */
+  }
+  .Logo {
+    width: 100px;
+    height: 35px;
+  }
+  .ButtonList {
+    width: 70px;
+    height: 35px;
+    font-size: 9px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  /* For mobile phones: */
+  .ButtonHeader {
+    font-size: 7px;
+  }
+  .divUserCard {
+    font-size: 7px;
+  }
+  .ButtonList {
+    /* width: 80px; */
+  }
 }
