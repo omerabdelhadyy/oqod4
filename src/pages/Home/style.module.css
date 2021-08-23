@@ -176,6 +176,11 @@ h2 {
     width: 120px;
     height: 45px;
   }
+  .ButtonList {
+    /* width: 70px;
+    height: 35px; */
+    font-size: 10px;
+  }
 }
 
 @media only screen and (max-width: 750px) {
@@ -206,7 +211,7 @@ h2 {
   .ButtonList {
     width: 70px;
     height: 35px;
-    font-size: 9px;
+    font-size: 7px;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -218,6 +223,8 @@ h2 {
     font-size: 7px;
   }
   .ButtonList {
-    /* width: 80px; */
+    width: 60px;
+    height: 30px;
+    font-size: 7px;
   }
 }
