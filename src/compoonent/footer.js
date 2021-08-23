@@ -20,8 +20,9 @@ class Footer extends React.Component {
               About
             </p>
             <p
+              onClick={() => this.props.push("/HomeWorks")}
 
-            // onClick={() => this.props.history.push("/")}
+              //  onClick={() => this.props.history.push("/")}
             >
               How it works
             </p>

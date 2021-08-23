@@ -135,7 +135,7 @@ class Home extends React.Component {
             </Slider>
           </div>
         </div>
-        <Footer />
+        <Footer push={this.props.history.push} />
       </>
     );
   }
