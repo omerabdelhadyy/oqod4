@@ -59,12 +59,15 @@
   margin-bottom: 10px;
   font-size: 12px;
   color: #353840;
+  padding: 0%;
 }
 .input1 {
   width: 50%;
   margin: 10px;
-  font-size: 4px;
+  /* font-size: 4px; */
   /* display: block; */
+  margin: 0%;
+  padding: 0%;
 }
 .Checkbox {
   /* background-color: red; */

@@ -37,6 +37,7 @@ class textField extends React.Component {
         style={{
           width: width,
           margin: label == "Address" ? 0 : 10,
+          // backgroundColor: "red",
         }}
       >
         <h1
@@ -120,6 +121,17 @@ class textField extends React.Component {
             />
           ) : (
             <TextField
+              InputLabelProps={{
+                style: {
+                  fontSize: this.state.width < 800 ? this.state.width / 60 : 14,
+                  // backgroundColor: "red",
+                },
+              }}
+              InputProps={{
+                style: {
+                  fontSize: this.state.width < 800 ? this.state.width / 50 : 20,
+                },
+              }}
               // style={{ fontSize: 0 }}
               id="filled-basic"
               label={label}
