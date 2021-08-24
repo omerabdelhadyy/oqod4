@@ -2,40 +2,42 @@
 .continerReal {
   background-color: #ffffff;
   width: fit-content;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
-  padding-block: 20px;
+  padding-block: 10px;
   margin: 16px auto;
   overflow: hidden;
   /* align-items: center; */
   /* justify-content: center; */
 }
 .imageFind {
-  width: 250px;
-  height: 110px;
+  width: 200px;
+  height: 100px;
   /* background-color: red; */
   /* align-self: center; */
   border-radius: 7px;
-  margin-block: 20px;
+  margin-block: 10px;
 }
 .continerReal h1 {
   font-size: 14px;
 }
 
 .ImageCard {
-  width: 300px;
+  width: 210px;
   height: 144;
   border-radius: 10px;
   margin-top: 10px;
 }
 .textProperty {
-  font-size: 20px;
+  font-size: 18px;
+  /* margin: 0%; */
+  padding: 0%;
 }
 .ButtonList {
   border: none;
   cursor: pointer;
   background-color: #ae9b77;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   width: 70px;
   height: 27px;
@@ -82,6 +84,7 @@ h1 {
   width: 100%;
   align-items: center;
   margin-top: 5%;
+  /* background-color: red; */
 }
 .pReal {
   width: 200px;
@@ -89,14 +92,15 @@ h1 {
   text-align: left;
   /* background-color: red; */
   padding-left: 10px;
-  font-size: 16px;
+  font-size: 14px;
   margin: 0%;
   padding: 0%;
-  padding-block: 4%;
+  padding-block: 2%;
 }
 .textProgress {
   font-size: 14px;
   font-weight: 500;
+  padding: 0%;
 }
 @media only screen and (max-width: 900px) {
   .continer {

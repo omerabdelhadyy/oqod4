@@ -91,10 +91,15 @@ class Register extends React.Component {
                 justifyContent: "center",
               }}
             >
-              <p>Already have an account ?</p>
+              <p style={{ fontSize: 13 }}>Already have an account ?</p>
 
               <p
-                style={{ cursor: "pointer", marginLeft: 3, color: "hotpink" }}
+                style={{
+                  cursor: "pointer",
+                  marginLeft: 3,
+                  color: "hotpink",
+                  fontSize: 13,
+                }}
                 onClick={() => this.props.history.push("/Login")}
               >
                 Log in

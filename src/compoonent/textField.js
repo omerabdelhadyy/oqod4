@@ -105,7 +105,7 @@ class textField extends React.Component {
               }}
               InputProps={{
                 style: {
-                  fontSize: this.state.width < 800 ? this.state.width / 50 : 20,
+                  fontSize: this.state.width < 800 ? this.state.width / 50 : 15,
                 },
               }}
               defaultValue={placeHolder}

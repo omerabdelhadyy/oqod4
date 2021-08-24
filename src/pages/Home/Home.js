@@ -18,7 +18,7 @@ class Home extends React.Component {
       initialSlide: 0,
       responsive: [
         {
-          breakpoint: 1324,
+          breakpoint: 1024,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
@@ -36,7 +36,7 @@ class Home extends React.Component {
         //   },
         // },
         {
-          breakpoint: 900,
+          breakpoint: 650,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,

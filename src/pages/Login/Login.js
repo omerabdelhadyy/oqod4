@@ -62,10 +62,15 @@ class Login extends React.Component {
                 justifyContent: "center",
               }}
             >
-              <p>Don’t have an account yet?</p>
+              <p style={{ fontSize: 13 }}>Don’t have an account yet?</p>
 
               <p
-                style={{ cursor: "pointer", marginLeft: 3, color: "hotpink" }}
+                style={{
+                  fontSize: 13,
+                  cursor: "pointer",
+                  marginLeft: 3,
+                  color: "hotpink",
+                }}
                 onClick={() => this.props.history.push("/")}
               >
                 Register
