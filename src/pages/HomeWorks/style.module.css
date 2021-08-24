@@ -28,16 +28,16 @@ div p {
   padding: 20px;
 }
 .divImage {
-  width: 100%;
+  /* width: 100%; */
   /* background-color: red; */
-  height: 350px;
+  /* height: 350px; */
   display: flex;
 }
 .divForm {
-  border-radius: 30;
-  height: 45%;
+  border-radius: 40;
   width: 100%;
   overflow: scroll;
+  margin-left: 10px;
   /* background-color: lawngreen; */
 }
 .divTokenPrice {
@@ -66,8 +66,8 @@ div p {
   display: flex;
   /* background-color: red; */
   justify-content: space-between;
-  padding-inline: 10%;
-  padding-left: 30%;
+  /* padding-inline: 10%; */
+  padding-left: 25%;
   height: 50%;
   padding-top: 10px;
 }
@@ -95,4 +95,49 @@ div p {
 }
 .textLink {
   font-size: 11px;
+}
+.Chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.imageProperty {
+  max-width: 50%;
+  height: auto;
+}
+.ButtonList {
+  border: none;
+  cursor: pointer;
+  background-color: #ae9b77;
+  font-size: 10px;
+  /* font-weight: 600; */
+  width: 70px;
+  height: 35px;
+  color: #fff;
+  text-align: "center";
+  text-transform: "capitalize";
+  border-radius: 7px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+  border-color: rgb(148, 133, 133);
+  border-color: rgb(138, 113, 93);
+  margin-inline: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+  .ButtonList {
+    font-size: 8px;
+  }
+  .divTokenPrice h1 {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .divTokenPrice h1 {
+    font-size: 11px;
+  }
+}
+@media only screen and (max-width: 500px) {
 }

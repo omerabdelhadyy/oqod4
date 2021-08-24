@@ -237,18 +237,13 @@ h2 {
   .ButtonList {
     width: 100px;
     height: 36px;
-    font-size: 9px;
+    font-size: 10px;
     /* background-color: red; */
   }
   .Logo,
   .LogoFooter {
     width: 120px;
     height: 45px;
-  }
-  .ButtonList {
-    /* width: 70px;
-    height: 35px; */
-    font-size: 10px;
   }
   .textLatest {
     font-size: 15px;
