@@ -3,6 +3,9 @@ import style from "./style.module.css";
 import { Checkbox, Button } from "@material-ui/core";
 import TextField from "../../compoonent/textField";
 class Register extends React.Component {
+  componentDidMount() {
+    // console.log("process", process?.env?.REACT_APP_Map);
+  }
   constructor() {
     super();
     this.state = {

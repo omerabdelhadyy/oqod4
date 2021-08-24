@@ -12,9 +12,39 @@ class Home extends React.Component {
     var settings = {
       dots: true,
       infinite: false,
-      speed: 500,
+      speed: 800,
       slidesToShow: 3,
       slidesToScroll: 3,
+      initialSlide: 0,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            // infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 680,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 1,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 1,
+            // dots: true,
+          },
+        },
+      ],
     };
     const people = [
       { firstName: "Elson", lastName: "Correia", info: { age: 24 } },
@@ -40,30 +70,18 @@ class Home extends React.Component {
                 <br /> do eiusmod.Lorem ipsum dolor sit amet, consectetur
                 <br /> adipiscing elit, sed do eiusmod.
               </p>
-              <Button
+              <button
                 onClick={() => this.props.history.push("/Create")}
-                style={{
-                  backgroundColor: "#fff",
-                  fontSize: "12px",
-                  width: "50%",
-                  color: "#AE9B77",
-                  textAlign: "center",
-                  textTransform: "capitalize",
-                  borderRadius: 10,
-                }}
-                variant="contained"
+                className={style.ButtonList}
+                style={{ backgroundColor: "#fff", color: "#ae9b77" }}
               >
                 List Property
-              </Button>
+              </button>
             </div>
           </div>
           <h1
-            style={{
-              textAlign: "center",
-              fontSize: 20,
-              marginTop: 30,
-              paddingBottom: 30,
-            }}
+            className={style.textLatest}
+            style={{ marginTop: 30, marginBottom: 30 }}
           >
             Latest Investment Opportunities
           </h1>
@@ -73,13 +91,16 @@ class Home extends React.Component {
             })}
           </div>
           <div className={style.textabout}>
-            <h1 style={{ fontSize: 16 }}>About Oqod</h1>
-            <p style={{ fontSize: 13 }}>
-              Real estate tokenization & investment platform
-            </p>
+            <h1
+              className={style.textLatest}
+              // style={{ marginTop: 10, paddingBottom: 10 }}
+            >
+              About Oqod
+            </h1>
+            <p>Real estate tokenization & investment platform</p>
           </div>
           <h1 className={style.textreal}>For real estate developer</h1>
-          <div className="container">
+          <div className={style.continerSlide}>
             <link
               rel="stylesheet"
               type="text/css"
@@ -101,7 +122,7 @@ class Home extends React.Component {
           <h1 style={{ marginTop: 70 }} className={style.textreal}>
             For investors
           </h1>
-          <div className="container">
+          <div className={style.continerSlide}>
             <link
               rel="stylesheet"
               type="text/css"
@@ -121,25 +142,25 @@ class Home extends React.Component {
             </Slider>
           </div>
         </div>
-        <Footer />
+        <Footer push={this.props.history.push} />
       </>
     );
   }
 }
 const cssstyle = `
-.container {
-  //  margin: 20 ;
-  //  padding: 0px 0px 0px 70px;
-  width: 100%;
-  text-align: center;
-  //  display: block; 
-  //  background: #5f9ea0;
-   justify-content: space-between; 
-  //  align-items: center;
-   align-self: center;
-   margin-left: 30px;
+// .container {
+//   //  margin: 20 ;
+//   //  padding: 0px 0px 0px 70px;
+//   width: 100%;
+//   text-align: center;
+//   //  display: block; 
+//    background: #5f9ea0;
+//    justify-content: space-between; 
+//     align-items: center;
+//    align-self: center;
+//    margin-left: 30px;
 
-}
+// }
 h3 {
     background: #5f9ea0;
     color: #fff;

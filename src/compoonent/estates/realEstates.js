@@ -6,7 +6,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 class realestate extends React.Component {
   render() {
     return (
-      <div className={style.continer}>
+      <div className={style.continerReal}>
         <h1 style={{ fontSize: 12 }}>Find your project or liquidate</h1>
         <img
           style={{ borderRadius: 10, marginTop: 10 }}

@@ -1,12 +1,38 @@
-.continer {
+.continer,
+.continerReal {
   background-color: #ffffff;
   width: fit-content;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   padding-block: 20px;
-  margin: 6px;
+  margin: 16px auto;
   overflow: hidden;
-  margin-left: 50px;
+}
+
+.ImageCard {
+  width: 250px;
+  height: 100;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.textProperty {
+  font-size: 20px;
+}
+.ButtonList {
+  border: none;
+  cursor: pointer;
+  background-color: #ae9b77;
+  font-size: 12px;
+  font-weight: 600;
+  width: 70px;
+  height: 27px;
+  color: #fff;
+  text-align: "center";
+  text-transform: "capitalize";
+  border-radius: 10px;
+  /* box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19); */
+  border-color: rgb(148, 133, 133);
+  border-color: rgb(138, 113, 93);
 }
 .divCArdRow {
   display: flex;
@@ -15,6 +41,12 @@
   /* background-color: lawngreen; */
   justify-content: space-between;
   padding-inline: 10px;
+  margin-top: 5%;
+}
+.divCArdRow p {
+  font-size: 14px;
+  padding: 0%;
+  margin: 0%;
 }
 h1 {
   margin: 0mm;
@@ -31,6 +63,7 @@ h1 {
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  margin-top: 5%;
 }
 .pReal {
   width: 160px;
@@ -39,4 +72,80 @@ h1 {
   /* background-color: red; */
   padding-left: 10px;
   font-size: 10px;
+}
+.textProgress {
+  font-size: 14px;
+  font-weight: 500;
+}
+@media only screen and (max-width: 900px) {
+  .continer {
+    /* margin-left: 40px; */
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .continer {
+    /* margin-left: 100px; */
+    padding-block: 10px;
+    padding: 10px;
+  }
+  .ImageCard {
+    width: 195px;
+    height: 80px;
+  }
+  .ButtonList {
+    width: 50px;
+    height: 22px;
+    font-size: 9px;
+    border-radius: 9px;
+  }
+  .textProperty {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .continer {
+    /* margin-left: 60px; */
+    padding-block: 10px;
+  }
+  .ImageCard {
+    width: 145px;
+    height: 70px;
+  }
+  .textProperty {
+    font-size: 9px;
+  }
+  .ButtonList {
+    width: 45px;
+    height: 20px;
+    font-size: 7px;
+    border-radius: 7px;
+  }
+  .textProgress {
+    font-size: 9px;
+  }
+  .divCArdRow p {
+    font-size: 8px;
+  }
+  .continerReal {
+    /* margin-left: 100px; */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .continer {
+    /* margin-left: 40px; */
+  }
+  /* .continerReal {
+    margin-left: 80px;
+  } */
+}
+@media only screen and (max-width: 500px) {
+  .continer {
+    /* margin-left: 35px; */
+    /* background-color: red; */
+  }
+  .continerReal {
+    /* margin-left: 70px; */
+  }
 }
