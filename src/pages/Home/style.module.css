@@ -2,6 +2,7 @@
   /* width: max-content; */
   margin: 10%;
   margin-top: 20px;
+  margin-bottom: 4%;
   /* background-color: cadetblue; */
 }
 .continerLatest {
@@ -21,7 +22,7 @@ a {
 }
 .image {
   background-image: url("https://png.pngtree.com/background/20210711/original/pngtree-network-information-electronic-technology-background-picture-image_1096792.jpg");
-  height: 560px;
+  height: auto;
   width: auto;
   margin-left: 10px;
   border-radius: 10px;
@@ -33,6 +34,7 @@ a {
   font-weight: bold;
   padding-left: 30px;
   padding: 30px;
+  padding-block: 40px;
 }
 
 .textImage p {
@@ -136,6 +138,7 @@ h2 {
   text-align: center;
   color: #6e737e;
   font-weight: 600;
+  padding: 0;
 }
 .divUserCard {
   cursor: pointer;
@@ -191,15 +194,21 @@ h2 {
   padding: 0%;
   margin: 0% auto;
 }
+.Logo {
+  cursor: pointer;
+}
 .textabout p {
   font-size: 18px;
-  color: #6E737E;
+  color: #6e737e;
   /* font-size: 13px; */
   /* margin-bottom: 20px; */
 }
 .LogoFooter {
   width: 160px;
   height: 55px;
+}
+.footer h2 {
+  cursor: pointer;
 }
 .footer p {
   color: #fff;

@@ -1,15 +1,18 @@
 .continer {
   margin: 10%;
   margin-top: 20px;
+  margin-bottom: 2%;
   /* background-color: red; */
 }
 .divAddress {
-  /* width: 100px; */
+  width: fit-content;
   display: inline-flex;
   text-align: center;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   /* background-color: red; */
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 h1 {
   font-size: 24px;
@@ -34,8 +37,8 @@ div p {
   display: flex;
 }
 .divForm {
-  border-radius: 40;
-  width: 100%;
+  border-radius: 10px;
+  /* width: 100%; */
   overflow: scroll;
   margin-left: 10px;
   /* background-color: lawngreen; */
@@ -71,6 +74,9 @@ div p {
   height: 50%;
   padding-top: 10px;
 }
+.HeadDivSell h1 {
+  font-size: 20px;
+}
 .bodyDivSell {
   /* background-color: red; */
   padding-inline: 10%;
@@ -93,6 +99,11 @@ div p {
 .divRelated {
   padding: 20px;
 }
+.divRelated h1 {
+  margin: 0%;
+  padding: 0%;
+  font-size: 13px;
+}
 .textLink {
   font-size: 11px;
 }
@@ -107,6 +118,7 @@ div p {
 .imageProperty {
   max-width: 50%;
   height: auto;
+  border-radius: 7px;
 }
 .ButtonList {
   border: none;

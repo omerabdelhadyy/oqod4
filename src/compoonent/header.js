@@ -7,6 +7,7 @@ class header extends React.Component {
     return (
       <div className={style.viewHeader}>
         <img
+          onClick={() => this.props.push("/Home")}
           className={style.Logo}
           src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
           alt="oqod"

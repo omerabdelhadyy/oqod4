@@ -7,6 +7,19 @@
   padding-block: 20px;
   margin: 16px auto;
   overflow: hidden;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.imageFind {
+  width: 250px;
+  height: 110px;
+  /* background-color: red; */
+  /* align-self: center; */
+  border-radius: 7px;
+  margin-block: 20px;
+}
+.continerReal h1 {
+  font-size: 14px;
 }
 
 .ImageCard {
@@ -77,6 +90,9 @@ h1 {
   /* background-color: red; */
   padding-left: 10px;
   font-size: 16px;
+  margin: 0%;
+  padding: 0%;
+  padding-block: 4%;
 }
 .textProgress {
   font-size: 14px;
@@ -105,6 +121,17 @@ h1 {
   }
   .textProperty {
     font-size: 13px;
+  }
+  .imageFind {
+    width: 200px;
+    height: auto;
+  }
+  .continerReal h1 {
+    font-size: 11px;
+  }
+  .pReal {
+    font-size: 11px;
+    padding: 0%;
   }
 }
 

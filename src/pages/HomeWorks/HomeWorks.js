@@ -45,8 +45,25 @@ class HomeWorks extends React.Component {
           <div className={style.divContiner}>
             <h1 style={{ fontSize: this.state.width / 60 }}>Property Title</h1>
             <div className={style.divAddress}>
-              <h1 style={{ fontSize: this.state.width / 70 }}>Address: </h1>
-              <p style={{ fontSize: this.state.width / 80 }}>Lorem Ipsum</p>
+              <h1
+                style={{
+                  fontSize: this.state.width / 70,
+                  margin: 0,
+                  padding: 0,
+                }}
+              >
+                Address:
+              </h1>
+              <p
+                style={{
+                  fontSize: this.state.width / 80,
+                  padding: 0,
+                  margin: 0,
+                  marginLeft: 10,
+                }}
+              >
+                Lorem Ipsum
+              </p>
             </div>
             <div
               className={style.divImage}
@@ -70,7 +87,13 @@ class HomeWorks extends React.Component {
                 >
                   <TableRow data={this.state.dataAsk} />
                 </div>
-                <h1 style={{ margin: 10, fontSize: this.state.width / 80 }}>
+                <h1
+                  style={{
+                    margin: 10,
+                    fontSize: this.state.width / 80,
+                    padding: 0,
+                  }}
+                >
                   Latest Transactions
                 </h1>
                 <div
@@ -119,9 +142,19 @@ class HomeWorks extends React.Component {
                   style={{
                     textAlign: "center",
                     width: "50%",
+                    // backgroundColor: "red",
                   }}
                 >
-                  <h1 style={{ height: "100%" }}>QTY</h1>
+                  <h1
+                    style={{
+                      height: "70%",
+                      fontSize:
+                        this.state.width < 700 ? this.state.width / 60 : 20,
+                      paddingBottom: 1,
+                    }}
+                  >
+                    QTY
+                  </h1>
                   <input style={{ width: this.state.width / 12 }} />
                 </div>
                 <h1></h1>
@@ -129,9 +162,18 @@ class HomeWorks extends React.Component {
                   style={{
                     textAlign: "center",
                     width: "70%",
+                    // backgroundColor: "red",
                   }}
                 >
-                  <h1 style={{ height: "100%" }}>Price</h1>
+                  <h1
+                    style={{
+                      height: "70%",
+                      fontSize:
+                        this.state.width < 700 ? this.state.width / 60 : 20,
+                    }}
+                  >
+                    Price
+                  </h1>
                   <div
                     style={{
                       display: "inline-flex",
@@ -155,8 +197,9 @@ class HomeWorks extends React.Component {
                         padding: 0,
                         marginBlock: 0,
                         // backgroundColor: "red",
-                        width: 100,
+                        width: 200,
                         textAlign: "left",
+                        fontSize: 13,
                       }}
                     >
                       Market Price
@@ -165,7 +208,14 @@ class HomeWorks extends React.Component {
                 </div>
               </div>
               <div className={style.bodyDivSell}>
-                <select name="Buy" id="Buy">
+                <select
+                  name="Buy"
+                  id="Buy"
+                  style={{
+                    fontSize:
+                      this.state.width < 900 ? this.state.width / 60 : 15,
+                  }}
+                >
                   <option value="Buy">Buy</option>
                   <option value="Sell">Sell</option>
                 </select>
@@ -181,6 +231,7 @@ class HomeWorks extends React.Component {
                   display: "flex",
                   textAlign: "center",
                   alignItems: "center",
+                  // backgroundColor: "red",
                 }}
               >
                 <div className={style.divSelectYes}>
@@ -253,7 +304,7 @@ class HomeWorks extends React.Component {
             </div>
           </div>
         </div>
-        <Footer />
+        <Footer push={this.props.history.push} />
       </>
     );
   }

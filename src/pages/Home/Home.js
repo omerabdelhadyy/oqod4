@@ -18,7 +18,7 @@ class Home extends React.Component {
       initialSlide: 0,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1324,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
@@ -26,17 +26,17 @@ class Home extends React.Component {
             dots: true,
           },
         },
+        // {
+        //   breakpoint: 680,
+        //   settings: {
+        //     slidesToShow: 1,
+        //     slidesToScroll: 1,
+        //     initialSlide: 1,
+        //     dots: true,
+        //   },
+        // },
         {
-          breakpoint: 680,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            initialSlide: 1,
-            dots: true,
-          },
-        },
-        {
-          breakpoint: 480,
+          breakpoint: 900,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -148,19 +148,6 @@ class Home extends React.Component {
   }
 }
 const cssstyle = `
-// .container {
-//   //  margin: 20 ;
-//   //  padding: 0px 0px 0px 70px;
-//   width: 100%;
-//   text-align: center;
-//   //  display: block; 
-//    background: #5f9ea0;
-//    justify-content: space-between; 
-//     align-items: center;
-//    align-self: center;
-//    margin-left: 30px;
-
-// }
 h3 {
     background: #5f9ea0;
     color: #fff;
