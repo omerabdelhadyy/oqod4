@@ -21,7 +21,7 @@ a {
 }
 .image {
   background-image: url("https://png.pngtree.com/background/20210711/original/pngtree-network-information-electronic-technology-background-picture-image_1096792.jpg");
-  /* height: 560px; */
+  height: 560px;
   width: auto;
   margin-left: 10px;
   border-radius: 10px;
@@ -68,13 +68,10 @@ p {
 .textreal {
   margin-top: 40px;
   text-align: center;
-<<<<<<< HEAD
   font-size: 24px;
   margin-left: 20px;
-=======
-  font-size: 16px;
+  /* font-size: 16px; */
   /* margin-left: 20px; */
->>>>>>> 2c2478f44fd104dd52a70e21a8eeaa0f2ea36296
   padding-bottom: 20px;
   color: #353840;
 }
@@ -195,13 +192,10 @@ h2 {
   margin: 0% auto;
 }
 .textabout p {
-<<<<<<< HEAD
   font-size: 18px;
   color: #6E737E;
-=======
-  font-size: 13px;
+  /* font-size: 13px; */
   /* margin-bottom: 20px; */
->>>>>>> 2c2478f44fd104dd52a70e21a8eeaa0f2ea36296
 }
 .LogoFooter {
   width: 160px;
