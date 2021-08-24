@@ -8,9 +8,26 @@ class textField extends React.Component {
   constructor() {
     super();
     this.state = {
+      width: 0,
+      height: 0,
       showPassword: false,
       income: true,
     };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+    // console.log(this.state.height);
   }
   render() {
     const { label, value, placeHolder, width, income } = this.props;
@@ -22,7 +39,14 @@ class textField extends React.Component {
           margin: label == "Address" ? 0 : 10,
         }}
       >
-        <h1 className={style.textLabel}>{label}</h1>
+        <h1
+          className={style.textLabel}
+          style={{
+            fontSize: this.state.width < 800 ? this.state.width / 60 : 14,
+          }}
+        >
+          {label}
+        </h1>
         {label == "Generetic Income" && (
           <div className={style.divIncome}>
             <div
@@ -72,9 +96,20 @@ class textField extends React.Component {
         {this.state.income ? (
           label != "Password" && label != "Repeat Password" ? (
             <TextField
+              InputLabelProps={{
+                style: {
+                  fontSize: this.state.width < 800 ? this.state.width / 60 : 14,
+                  // backgroundColor: "red",
+                },
+              }}
+              InputProps={{
+                style: {
+                  fontSize: this.state.width < 800 ? this.state.width / 50 : 20,
+                },
+              }}
               defaultValue={placeHolder}
               multiline={true}
-              style={{ fontSize: 4 }}
+              // style={{ fontSize: 0, color: "red" }}
               disabled={label == "Address" && true}
               onChange={(t) => value(t.target.value)}
               id="filled-basic"
@@ -85,6 +120,7 @@ class textField extends React.Component {
             />
           ) : (
             <TextField
+              // style={{ fontSize: 0 }}
               id="filled-basic"
               label={label}
               variant="outlined"

@@ -49,6 +49,8 @@
 .TextField {
   width: 100%;
   background-color: #ececec;
+  /* text-align: center;
+  justify-content: center; */
   /* background-color: red; */
 }
 .textLabel {
