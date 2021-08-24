@@ -48,7 +48,13 @@ class header extends React.Component {
           Welcom omer
         </div>
         {/* <div className={style.ButtonList}> */}
-        <button className={style.ButtonList}>List Property</button>
+        <button
+          className={style.ButtonList}
+          onClick={() => this.props.push("/Create")}
+        >
+          List Property
+        </button>
+
         {/* <Button
             onClick={() => this.props.push("/Create")}
             style={{

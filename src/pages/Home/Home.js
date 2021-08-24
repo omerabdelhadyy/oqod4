@@ -40,6 +40,7 @@ class Home extends React.Component {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
+            initialSlide: 1,
             // dots: true,
           },
         },
@@ -70,6 +71,7 @@ class Home extends React.Component {
                 <br /> adipiscing elit, sed do eiusmod.
               </p>
               <button
+                onClick={() => this.props.history.push("/Create")}
                 className={style.ButtonList}
                 style={{ backgroundColor: "#fff", color: "#ae9b77" }}
               >
@@ -77,7 +79,12 @@ class Home extends React.Component {
               </button>
             </div>
           </div>
-          <h1 className={style.textLatest}>Latest Investment Opportunities</h1>
+          <h1
+            className={style.textLatest}
+            style={{ marginTop: 30, marginBottom: 30 }}
+          >
+            Latest Investment Opportunities
+          </h1>
           <div className={style.estates}>
             {people?.map((item, index) => {
               return <Estate />;
@@ -86,7 +93,7 @@ class Home extends React.Component {
           <div className={style.textabout}>
             <h1
               className={style.textLatest}
-              style={{ marginTop: 10, paddingBottom: 10 }}
+              // style={{ marginTop: 10, paddingBottom: 10 }}
             >
               About Oqod
             </h1>

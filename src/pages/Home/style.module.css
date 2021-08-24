@@ -21,7 +21,7 @@ a {
 }
 .image {
   background-image: url("https://png.pngtree.com/background/20210711/original/pngtree-network-information-electronic-technology-background-picture-image_1096792.jpg");
-  height: 560px;
+  /* height: 560px; */
   width: auto;
   margin-left: 10px;
   border-radius: 10px;
@@ -32,14 +32,17 @@ a {
   font-size: 48px;
   font-weight: bold;
   padding-left: 30px;
+  padding: 30px;
 }
 
 .textImage p {
   /* background-color: #fff; */
-  font-size: 18px;
+  font-size: 14px;
   margin: 0%;
   margin-block: 10px;
-  font-weight: bold;
+  font-weight: 500;
+  color: #f1f0ee;
+  letter-spacing: 1px;
 }
 .continerAbout {
   /* background-color: red; */
@@ -52,13 +55,11 @@ p {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
-  /* background-color: #2196f3; */
-  /* padding: 10px; */
-  /* padding-inline: 30px; */
-  /* justify-content: space-between; */
+  justify-content: space-between;
   text-align: center;
   align-items: center;
   /* background-color: red; */
+  margin-left: 10px;
 }
 .textabout {
   text-align: center;
@@ -67,8 +68,13 @@ p {
 .textreal {
   margin-top: 40px;
   text-align: center;
+<<<<<<< HEAD
   font-size: 24px;
   margin-left: 20px;
+=======
+  font-size: 16px;
+  /* margin-left: 20px; */
+>>>>>>> 2c2478f44fd104dd52a70e21a8eeaa0f2ea36296
   padding-bottom: 20px;
   color: #353840;
 }
@@ -131,15 +137,15 @@ h2 {
   cursor: pointer;
   font-size: 18px;
   text-align: center;
-  color:#6E737E;
-  font-weight: 600; 
+  color: #6e737e;
+  font-weight: 600;
 }
 .divUserCard {
   cursor: pointer;
   /* background-color: red; */
   display: flex;
   align-items: center;
-  font-size: 10px;
+  font-size: 17px;
   /* width: 10%; */
   /* justify-content: center; */
   text-align: center;
@@ -169,24 +175,33 @@ h2 {
 }
 
 .continerSlide {
-  margin: 20;
-  width: 100%;
+  /* margin: 20; */
+  /* width: 100%; */
   text-align: center;
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  /* background-color: red; */
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 .textLatest {
   text-align: center;
   font-size: 24px;
   margin-top: 35px;
-  padding-bottom: 30px;
-  margin-left: 25px;
+  /* padding-bottom: 30px; */
+  /* margin-left: 25px; */
   color: #353840;
-  
-  
+  /* background-color: red; */
+  padding: 0%;
+  margin: 0% auto;
 }
 .textabout p {
+<<<<<<< HEAD
   font-size: 18px;
   color: #6E737E;
+=======
+  font-size: 13px;
+  /* margin-bottom: 20px; */
+>>>>>>> 2c2478f44fd104dd52a70e21a8eeaa0f2ea36296
 }
 .LogoFooter {
   width: 160px;
@@ -283,8 +298,8 @@ h2 {
   }
   .Logo,
   .LogoFooter {
-    width: 100px;
-    height: 35px;
+    width: 70px;
+    height: 30px;
   }
   .ButtonList {
     width: 70px;
@@ -303,6 +318,10 @@ h2 {
   .footer p {
     font-size: 10px;
   }
+  .textImage p {
+    font-size: 10px;
+    /* color: red; */
+  }
 }
 @media only screen and (max-width: 500px) {
   /* For mobile phones: */
@@ -319,10 +338,6 @@ h2 {
   }
   .image {
     font-size: 15px;
-  }
-  .textImage p {
-    font-size: 18px;
-    font-weight: bold;
   }
   .footer p {
     font-size: 8px;
