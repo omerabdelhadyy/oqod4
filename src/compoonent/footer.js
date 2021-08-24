@@ -14,45 +14,45 @@ class Footer extends React.Component {
         </div>
         <div className={style.continerAbout}>
           <div>
-            <p
+            <h2
             // onClick={() => this.props.history.push("/")}
             >
               About
-            </p>
-            <p
+            </h2>
+            <h2
               onClick={() => this.props.push("/HomeWorks")}
 
               //  onClick={() => this.props.history.push("/")}
             >
               How it works
-            </p>
+            </h2>
           </div>
           <div>
-            <p
+            <h2
             // onClick={() => this.props.history.push("/")}
             >
               Blog
-            </p>
+            </h2>
 
-            <p
+            <h2
             // onClick={() => this.props.history.push("/")}
             >
               Contact Us
-            </p>
+            </h2>
           </div>
         </div>
         <div className={style.textPrivacy}>
-          <p
+          <h2
           // onClick={() => this.props.history.push("/")}
           >
             Privacy Policy
-          </p>
+          </h2>
 
-          <p
+          <h2
           // onClick={() => this.props.history.push("/")}
           >
             Terms of Use
-          </p>
+          </h2>
         </div>
       </div>
     );

@@ -64,12 +64,12 @@ h1 {
   align-items: center;
 }
 .pReal {
-  width: 160px;
+  width: 200px;
   color: #6e737e;
   text-align: left;
   /* background-color: red; */
   padding-left: 10px;
-  font-size: 10px;
+  font-size: 16px;
 }
 .textProgress {
   font-size: 14px;
