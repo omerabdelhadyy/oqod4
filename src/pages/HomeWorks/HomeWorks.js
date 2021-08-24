@@ -10,6 +10,8 @@ class HomeWorks extends React.Component {
   constructor() {
     super();
     this.state = {
+      width: 0,
+      height: 0,
       dataAsk: [
         { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
         { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
@@ -20,6 +22,20 @@ class HomeWorks extends React.Component {
         { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
       ],
     };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+    // console.log(this.state.height);
   }
   render() {
     return (
@@ -27,59 +43,75 @@ class HomeWorks extends React.Component {
         <div className={style.continer}>
           <Header push={this.props.history.push} />
           <div className={style.divContiner}>
-            <h1>Property Title</h1>
+            <h1 style={{ fontSize: this.state.width / 60 }}>Property Title</h1>
             <div className={style.divAddress}>
-              <h1>Address: </h1>
-              <p>Lorem Ipsum</p>
+              <h1 style={{ fontSize: this.state.width / 70 }}>Address: </h1>
+              <p style={{ fontSize: this.state.width / 80 }}>Lorem Ipsum</p>
             </div>
-            <div className={style.divImage}>
+            <div
+              className={style.divImage}
+              style={{
+                height: this.state.width / 4,
+                // overflow: "scroll",
+              }}
+            >
               <img
+                className={style.imageProperty}
                 src="https://fustany.com/images/ar/content/header_image_how_to_choose_your_home_furniture_if_you_have_children_fustany_main_image.jpg"
-                width="50%"
-                height="100%"
               />
-              <div style={{ width: "90%", height: "100%", marginLeft: 15 }}>
-                <div className={style.divForm}>
+              <div
+                style={{
+                  width: "50%",
+                }}
+              >
+                <div
+                  className={style.divForm}
+                  style={{ height: this.state.width / 9 }}
+                >
                   <TableRow data={this.state.dataAsk} />
                 </div>
-                <h1 style={{ margin: 10 }}>Latest Transactions</h1>
-                <div className={style.divForm}>
+                <h1 style={{ margin: 10, fontSize: this.state.width / 80 }}>
+                  Latest Transactions
+                </h1>
+                <div
+                  className={style.divForm}
+                  style={{ height: this.state.width / 9 }}
+                >
                   <TableRow data={this.state.dataAsk} />
                 </div>
               </div>
             </div>
             <div className={style.divTokenPrice}>
               <h1>Token Price: $11.75</h1>
-              <Button
+              <button
                 style={{
-                  backgroundColor: "#AE9B77",
-                  fontSize: "10px",
-                  color: "#fff",
-                  textAlign: "center",
-                  textTransform: "capitalize",
-                  borderRadius: 8,
-                  marginInline: 10,
+                  width: this.state.width / 12,
+                  maxWidth: 70,
+                  height: this.state.width / 22,
+                  maxHeight: 35,
                 }}
-                variant="contained"
+                className={style.ButtonList}
+                // onClick={() => this.props.push("/Create")}
               >
                 Buy
-              </Button>
-              <Button
+              </button>
+              <button
                 style={{
                   backgroundColor: "#fff",
-                  fontSize: "10px",
                   color: "#AE9B77",
-                  textAlign: "center",
-                  textTransform: "capitalize",
-                  borderRadius: 8,
                   borderWidth: 1,
                   borderColor: "#AE9B77",
                   borderStyle: "solid",
+                  width: this.state.width / 12,
+                  maxWidth: 70,
+                  height: this.state.width / 22,
+                  maxHeight: 35,
                 }}
-                variant="contained"
+                className={style.ButtonList}
+                // onClick={() => this.props.push("/Create")}
               >
                 Sell
-              </Button>
+              </button>
             </div>
             <div className={style.divSell}>
               <div className={style.HeadDivSell}>
@@ -90,7 +122,7 @@ class HomeWorks extends React.Component {
                   }}
                 >
                   <h1 style={{ height: "100%" }}>QTY</h1>
-                  <input style={{ width: 100 }} />
+                  <input style={{ width: this.state.width / 12 }} />
                 </div>
                 <h1></h1>
                 <div
@@ -116,8 +148,17 @@ class HomeWorks extends React.Component {
                         }}
                       ></div>
                     </div>
-                    <input style={{ width: 100 }} />
-                    <p style={{ marginLeft: 20, padding: 0, marginBlock: 0 }}>
+                    <input style={{ width: this.state.width / 12 }} />
+                    <p
+                      style={{
+                        marginLeft: 20,
+                        padding: 0,
+                        marginBlock: 0,
+                        // backgroundColor: "red",
+                        width: 100,
+                        textAlign: "left",
+                      }}
+                    >
                       Market Price
                     </p>
                   </div>
@@ -130,16 +171,7 @@ class HomeWorks extends React.Component {
                 </select>
               </div>
             </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#fff",
-                borderRadius: 20,
-                marginTop: 20,
-              }}
-            >
+            <div className={style.Chart}>
               <Chart />
             </div>
             <div className={style.divRelated}>

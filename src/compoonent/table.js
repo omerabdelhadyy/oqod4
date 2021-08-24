@@ -17,10 +17,11 @@ const styles = (theme) => ({
   },
   table: {
     Width: "100%",
+
     // minWidth: "100%",
     // minHeight: "50%",
     // height: "10%",
-    // backgroundColor: "red",
+    backgroundColor: "#fff",
     // overflow: "hidden",
   },
 });

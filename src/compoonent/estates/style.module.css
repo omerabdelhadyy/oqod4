@@ -83,13 +83,8 @@ h1 {
   font-weight: 500;
 }
 @media only screen and (max-width: 900px) {
-  .continer {
-    /* margin-left: 40px; */
 }
 @media only screen and (max-width: 900px) {
-  .continer {
-    /* margin-left: 40px; */
-  }
 }
 @media only screen and (max-width: 1000px) {
   .continer {
@@ -136,25 +131,9 @@ h1 {
   .divCArdRow p {
     font-size: 8px;
   }
-  .continerReal {
-    /* margin-left: 100px; */
-  }
 }
 
 @media only screen and (max-width: 600px) {
-  .continer {
-    /* margin-left: 40px; */
-  }
-  /* .continerReal {
-    margin-left: 80px;
-  } */
 }
 @media only screen and (max-width: 500px) {
-  .continer {
-    /* margin-left: 35px; */
-    /* background-color: red; */
-  }
-  .continerReal {
-    /* margin-left: 70px; */
-  }
 }
