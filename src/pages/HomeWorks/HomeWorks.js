@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../compoonent/header";
 import style from "./style.module.css";
-import TableRow from "../../compoonent/table";
+import TableRow from "../../compoonent/table/table";
 import { Button } from "@material-ui/core";
 import Chart from "../../compoonent/Chart/Chart";
 import Footer from "../../compoonent/footer";
@@ -18,6 +18,10 @@ class HomeWorks extends React.Component {
         { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
         { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
         { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+      ],
+      dataAsk2: [
         { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
         { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
       ],
@@ -82,26 +86,29 @@ class HomeWorks extends React.Component {
                 }}
               >
                 <div
-                  className={style.divForm}
+                  // className={style.divForm}
                   style={{ height: this.state.width / 9 }}
                 >
-                  <TableRow data={this.state.dataAsk} />
+                  <TableRow
+                    data={this.state.dataAsk}
+                    height={this.state.width / 8.5}
+                  />
                 </div>
                 <h1
                   style={{
                     margin: 10,
-                    fontSize: this.state.width / 80,
-                    padding: 0,
+                    fontSize: this.state.width / 85,
+                    paddingTop: "7%",
                   }}
                 >
                   Latest Transactions
                 </h1>
-                <div
-                  className={style.divForm}
-                  style={{ height: this.state.width / 9 }}
-                >
-                  <TableRow data={this.state.dataAsk} />
-                </div>
+
+                <TableRow
+                  data={this.state.dataAsk2}
+                  height={this.state.width / 16}
+                  // height={40}
+                />
               </div>
             </div>
             <div className={style.divTokenPrice}>
@@ -109,9 +116,9 @@ class HomeWorks extends React.Component {
               <button
                 style={{
                   width: this.state.width / 12,
-                  maxWidth: 70,
+                  maxWidth: 80,
                   height: this.state.width / 22,
-                  maxHeight: 35,
+                  maxHeight: 30,
                 }}
                 className={style.ButtonList}
                 // onClick={() => this.props.push("/Create")}
@@ -126,9 +133,9 @@ class HomeWorks extends React.Component {
                   borderColor: "#AE9B77",
                   borderStyle: "solid",
                   width: this.state.width / 12,
-                  maxWidth: 70,
+                  maxWidth: 80,
                   height: this.state.width / 22,
-                  maxHeight: 35,
+                  maxHeight: 30,
                 }}
                 className={style.ButtonList}
                 // onClick={() => this.props.push("/Create")}
@@ -138,6 +145,19 @@ class HomeWorks extends React.Component {
             </div>
             <div className={style.divSell}>
               <div className={style.HeadDivSell}>
+                <div className={style.bodyDivSell}>
+                  <select
+                    name="Buy"
+                    id="Buy"
+                    style={{
+                      fontSize:
+                        this.state.width < 900 ? this.state.width / 60 : 13,
+                    }}
+                  >
+                    <option value="Buy">Buy</option>
+                    <option value="Sell">Sell</option>
+                  </select>
+                </div>
                 <div
                   style={{
                     textAlign: "center",
@@ -147,17 +167,24 @@ class HomeWorks extends React.Component {
                 >
                   <h1
                     style={{
-                      height: "70%",
+                      // height: "70%",
                       fontSize:
-                        this.state.width < 700 ? this.state.width / 60 : 20,
-                      paddingBottom: 1,
+                        this.state.width < 700 ? this.state.width / 60 : 16,
+                      paddingBottom: 20,
                     }}
                   >
                     QTY
                   </h1>
-                  <input style={{ width: this.state.width / 12 }} />
+                  <input
+                    style={{
+                      width: this.state.width / 12,
+                      height:
+                        this.state.width < 700 ? this.state.width / 52 : 15,
+                    }}
+                  />
                 </div>
-                <h1></h1>
+                {/* <h1></h1> */}
+
                 <div
                   style={{
                     textAlign: "center",
@@ -167,9 +194,10 @@ class HomeWorks extends React.Component {
                 >
                   <h1
                     style={{
-                      height: "70%",
+                      paddingBottom: 20,
+                      // height: "70%",
                       fontSize:
-                        this.state.width < 700 ? this.state.width / 60 : 20,
+                        this.state.width < 700 ? this.state.width / 60 : 16,
                     }}
                   >
                     Price
@@ -178,6 +206,8 @@ class HomeWorks extends React.Component {
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
+                      // backgroundColor: "red",
+                      paddingLeft: 30,
                     }}
                   >
                     <div className={style.divSelectYes}>
@@ -190,7 +220,13 @@ class HomeWorks extends React.Component {
                         }}
                       ></div>
                     </div>
-                    <input style={{ width: this.state.width / 12 }} />
+                    <input
+                      style={{
+                        width: this.state.width / 12,
+                        height:
+                          this.state.width < 700 ? this.state.width / 52 : 15,
+                      }}
+                    />
                     <p
                       style={{
                         marginLeft: 20,
@@ -199,26 +235,14 @@ class HomeWorks extends React.Component {
                         // backgroundColor: "red",
                         width: 200,
                         textAlign: "left",
-                        fontSize: 13,
+                        fontSize:
+                          this.state.width < 700 ? this.state.width / 70 : 12,
                       }}
                     >
                       Market Price
                     </p>
                   </div>
                 </div>
-              </div>
-              <div className={style.bodyDivSell}>
-                <select
-                  name="Buy"
-                  id="Buy"
-                  style={{
-                    fontSize:
-                      this.state.width < 900 ? this.state.width / 60 : 15,
-                  }}
-                >
-                  <option value="Buy">Buy</option>
-                  <option value="Sell">Sell</option>
-                </select>
               </div>
             </div>
             <div className={style.Chart}>

@@ -10,7 +10,7 @@ class estate extends React.Component {
         <h1 className={style.textProperty}>Property #1</h1>
         <img
           className={style.ImageCard}
-          src="https://png.pngtree.com/background/20210711/original/pngtree-network-information-electronic-technology-background-picture-image_1096792.jpg"
+          src="https://ap.rdcpix.com/cfb0064b155a8f8d4bfb05e6722020efl-m3439388063od-w480_h360_x2.webp"
         />
         <div className={style.divCArdRow}>
           <p>Price: $450</p>

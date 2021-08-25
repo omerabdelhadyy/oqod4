@@ -112,8 +112,8 @@ class Home extends React.Component {
               type="text/css"
               href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
             />
-            <style>{cssstyle}</style>
-            <Slider {...settings}>
+            {/* <style>{cssstyle}</style> */}
+            <Slider {...settings} arrows={false} className={style.testslider}>
               {people?.map((item, index) => {
                 return <Realestate />;
               })}
@@ -134,8 +134,8 @@ class Home extends React.Component {
               type="text/css"
               href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
             />
-            <style>{cssstyle}</style>
-            <Slider {...settings}>
+            {/* <style>{cssstyle}</style> */}
+            <Slider {...settings} arrows={false}>
               {people?.map((item, index) => {
                 return <Realestate />;
               })}

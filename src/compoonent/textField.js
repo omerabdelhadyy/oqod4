@@ -99,7 +99,7 @@ class textField extends React.Component {
             <TextField
               InputLabelProps={{
                 style: {
-                  fontSize: this.state.width < 800 ? this.state.width / 60 : 14,
+                  fontSize: this.state.width < 800 ? this.state.width / 50 : 14,
                   // backgroundColor: "red",
                 },
               }}
@@ -123,7 +123,7 @@ class textField extends React.Component {
             <TextField
               InputLabelProps={{
                 style: {
-                  fontSize: this.state.width < 800 ? this.state.width / 60 : 14,
+                  fontSize: this.state.width < 800 ? this.state.width / 50 : 14,
                   // backgroundColor: "red",
                 },
               }}

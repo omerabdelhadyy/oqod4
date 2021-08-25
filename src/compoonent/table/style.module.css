@@ -1,0 +1,63 @@
+.continetTable {
+  width: 100%;
+  background-color: #fff;
+  margin: 0px auto;
+  padding: 3%;
+  border-radius: 10px;
+  height: 100%;
+  /* overflow: hidden; */
+  margin-left: 10px;
+  /* padding-bottom: 0%; */
+  /* margin-bottom: 0px; */
+}
+.continerScrrol {
+  width: 100%;
+  /* background-color: red; */
+  height: 80%;
+  overflow: auto;
+  padding: 0%;
+  /* margin-bottom: 7%; */
+  /* border-radius: 10px; */
+  /* margin-bottom: 30px; */
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+.title h1 {
+  font-size: 12px;
+  margin: 0%;
+  width: 25%;
+  padding: 0%;
+  text-align: center;
+  font-weight: 600;
+  /* background-color: red; */
+}
+.disc {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
+}
+.disc h1 {
+  font-size: 10px;
+  /* background-color: black; */
+  text-align: center;
+  width: 25%;
+  font-weight: 400;
+  margin: 1%;
+  margin-inline: 0%;
+  padding: 0%;
+}
+.Line {
+  background-color: rgb(238, 234, 234);
+  width: 100%;
+  height: 1px;
+  margin: 0%;
+  margin-top: 3%;
+  padding: 0%;
+}
+@media only screen and (max-width: 750px) {
+  .continetTable {
+    border-radius: 0px;
+  }
+}

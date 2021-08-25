@@ -288,15 +288,17 @@ class Map extends React.Component {
           <Autocomplete
             // placeholder={this.state.address}
             style={{
-              width: "97%",
+              width: "98%",
               height: "40px",
-              paddingLeft: "16px",
+              // paddingLeft: "16px",
               // marginTop: "2px",
               // marginBottom: "100px",
               backgroundColor: "#ececec",
               borderColor: "#000",
               borderWidth: 0,
               borderRadius: 2,
+              fontSize: 12,
+              paddingInline: "1%",
             }}
             onPlaceSelected={this.onPlaceSelected}
             types={["(regions)"]}
