@@ -21,8 +21,8 @@ class ImageSelect extends React.Component {
       <div style={{ position: "relative" }}>
         <img
           src={URL?.createObjectURL?.(this?.props?.item)}
-          width={100}
-          height={100}
+          width={120}
+          height={120}
           style={{ borderRadius: 4 }}
         />
         <div onClick={() => this.props.deleteImage()}>

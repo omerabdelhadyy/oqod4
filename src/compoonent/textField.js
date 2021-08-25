@@ -48,7 +48,7 @@ class textField extends React.Component {
         >
           {label}
         </h1>
-        {label == "Generetic Income" && (
+        {label == "Generetic " && (
           <div className={style.divIncome}>
             <div
               className={style.divYes}
@@ -72,6 +72,7 @@ class textField extends React.Component {
               <p className={style.textYes}>yes</p>
             </div>
             <div
+              style={{ marginLeft: 10 }}
               className={style.divYes}
               onClick={() => {
                 this.setState({ income: false });

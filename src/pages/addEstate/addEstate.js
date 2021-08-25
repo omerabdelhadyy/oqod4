@@ -7,6 +7,7 @@ import ImageUpload from "image-upload-react";
 import ImageSelect from "../../compoonent/ImageSelect/imageSelect";
 import { Button } from "@material-ui/core";
 import Footer from "../../compoonent/footer";
+import WallpaperIcon from "@material-ui/icons/Wallpaper";
 
 class addEstate extends React.Component {
   constructor() {
@@ -45,6 +46,12 @@ class addEstate extends React.Component {
       : this.setState({ dataPropety_Deed: result });
   };
 
+  getFile() {
+    console.log("omer");
+    var fu1 = document.getElementById("FileUpload1");
+    // document.getElementById('f')
+    // document.getElementById("upfile").click();
+  }
   render() {
     return (
       <>
@@ -82,20 +89,29 @@ class addEstate extends React.Component {
                     />
                   );
                 })}
-                <div className={style.ImagePick}>
-                  <ImageUpload
-                    handleImageSelect={this.handleImageSelect}
-                    // imageSrc={"https://miro.medium.com/max/1400/0*xYTFQCsKDmvhFCeh"}
-                    setImageSrc={(image) => console.log("set", image)}
-                    style={{
-                      height: 108,
-                      bottom: 45,
-                      backgroundColor: "#000",
-                    }}
-                  />
-                </div>
-                {/* <img src="http://localhost:3000/52392433-092d-470a-b9c9-3b5f0c26a031" /> */}
-                {/* </div> */}
+                <form>
+                  <label for="img" className={style.ImagePick}>
+                    <WallpaperIcon style={{ marginTop: 10, fontSize: 40 }} />
+                    <h1
+                      onClick={() => this.getFile()}
+                      style={{ fontSize: 9, zIndex: 1000 }}
+                    >
+                      Drop file to upload or
+                      {`\r`}
+                      <span style={{ color: "#B19E7A" }}>browse </span> to
+                      choose a file
+                    </h1>
+                    <input
+                      onTouchCancel={null}
+                      onChange={this.handleImageSelect}
+                      type="file"
+                      id="img"
+                      name="img"
+                      accept="image/*"
+                      style={{ display: "none" }}
+                    />
+                  </label>
+                </form>
               </div>
             </div>
             <div
@@ -116,7 +132,7 @@ class addEstate extends React.Component {
               <TextField
                 income={(text) => this.setState({ income: text })}
                 width={"40%"}
-                label="Generetic Income"
+                label="Generetic "
                 value={(Full_Name) => this.setState({ Full_Name })}
               />
             </div>
@@ -134,18 +150,29 @@ class addEstate extends React.Component {
                     />
                   );
                 })}
-                <div className={style.ImagePick}>
-                  <ImageUpload
-                    handleImageSelect={this.handledataPropety_DeedSelect}
-                    // imageSrc={"https://miro.medium.com/max/1400/0*xYTFQCsKDmvhFCeh"}
-                    setImageSrc={(image) => console.log("set", image)}
-                    style={{
-                      height: 108,
-                      bottom: 45,
-                      backgroundColor: "#000",
-                    }}
-                  />
-                </div>
+                <form>
+                  <label for="img" className={style.ImagePick}>
+                    <WallpaperIcon style={{ marginTop: 10, fontSize: 40 }} />
+                    <h1
+                      onClick={() => this.getFile()}
+                      style={{ fontSize: 9, zIndex: 1000 }}
+                    >
+                      Drop file to upload or
+                      {`\r`}
+                      <span style={{ color: "#B19E7A" }}>browse </span> to
+                      choose a file
+                    </h1>
+                    <input
+                      onTouchCancel={null}
+                      onChange={this.handledataPropety_DeedSelect}
+                      type="file"
+                      id="img"
+                      name="img"
+                      accept="image/*"
+                      style={{ display: "none" }}
+                    />
+                  </label>
+                </form>
                 {/* <img src="http://localhost:3000/52392433-092d-470a-b9c9-3b5f0c26a031" /> */}
                 {/* </div> */}
               </div>
@@ -161,6 +188,7 @@ class addEstate extends React.Component {
                   alignItems: "center",
                   margin: 0,
                   padding: 0,
+                  // backgroundColor: "red",
                 }}
               >
                 <TextField
@@ -168,7 +196,16 @@ class addEstate extends React.Component {
                   // label="Area"
                   value={(Full_Name) => this.setState({ Full_Name })}
                 />
-                <p style={{ marginTop: 20, fontSize: 12 }}>For</p>
+                <p
+                  style={{
+                    marginTop: 20,
+                    fontSize: 12,
+                    padding: 0,
+                    marginRight: 8,
+                  }}
+                >
+                  For
+                </p>
                 <TextField
                   income={(text) => this.setState({ income: text })}
                   width={"20%"}

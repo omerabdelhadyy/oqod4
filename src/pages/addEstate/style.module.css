@@ -20,9 +20,12 @@
   margin-bottom: 10px;
   font-size: 12px;
   color: #353840;
+  /* padding: 0%; */
+  /* background-color: red; */
 }
 .picImage {
   width: 50%;
+  /* background-color: red; */
 }
 .divpickImage {
   display: grid;
@@ -32,17 +35,35 @@
   justify-content: space-between;
 }
 .ImagePick {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   overflow: hidden;
-  background-color: red;
+  background-color: #ececec;
   align-items: center;
   justify-content: center;
   text-align: center;
-  display: flex;
+  display: block;
   border-radius: 6px;
+  /* z-index: 100px; */
+  cursor: pointer;
+  border: grey;
+  border-style: solid;
+  border-width: 0.1ch;
 
   /* margin-left: 20px; */
+}
+.Upload {
+}
+
+input[type="file"] {
+  /* display: inline; */
+  /* font-size: 100px; */
+  /* background-color: red; */
+  /* color: red; */
+  /* width: 200px; */
+  /* height: 500px; */
+  z-index: 0px;
+  /* position: absolute; */
 }
 .devPercentage {
   /* background-color: red; */
@@ -51,5 +72,5 @@
   justify-content: center;
   text-align: center;
   align-self: center;
-  margin-top: 30px;
+  margin-top: 0px;
 }

@@ -94,13 +94,21 @@ a {
   align-items: center;
   text-align: center;
   /* background-color: red; */
+  margin: 0%;
+  padding: 0%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: fit-content;
 }
 .divYes {
   display: flex;
   flex-direction: row;
   align-items: center;
   text-align: center;
-  margin: 10px;
+  margin: 0px auto;
+  padding: 0%;
+  /* margin-inline: 10px; */
+  /* background-color: grey; */
 }
 .divSelectYes {
   width: 6px;

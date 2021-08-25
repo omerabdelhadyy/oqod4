@@ -212,6 +212,9 @@ h2 {
 }
 .Logo {
   cursor: pointer;
+  /* width: fit-content auto; */
+  /* height: 200px auto; */
+  /* background-color: red; */
 }
 .textabout p {
   font-size: 12px;

@@ -1,6 +1,7 @@
 import React from "react";
 import style from "../pages/Home/style.module.css";
 import { Button } from "@material-ui/core";
+import Logo from "../assets/images/logo2.png";
 
 class header extends React.Component {
   render() {
