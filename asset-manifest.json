@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/oqod4/static/css/main.5c4ac02c.chunk.css",
-    "main.js": "/oqod4/static/js/main.947a4d2b.chunk.js",
-    "main.js.map": "/oqod4/static/js/main.947a4d2b.chunk.js.map",
+    "main.css": "/oqod4/static/css/main.c1f31f03.chunk.css",
+    "main.js": "/oqod4/static/js/main.12416961.chunk.js",
+    "main.js.map": "/oqod4/static/js/main.12416961.chunk.js.map",
     "runtime-main.js": "/oqod4/static/js/runtime-main.ef571ef6.js",
     "runtime-main.js.map": "/oqod4/static/js/runtime-main.ef571ef6.js.map",
     "static/js/2.38f9cb29.chunk.js": "/oqod4/static/js/2.38f9cb29.chunk.js",
@@ -10,15 +10,15 @@
     "static/js/3.09215460.chunk.js": "/oqod4/static/js/3.09215460.chunk.js",
     "static/js/3.09215460.chunk.js.map": "/oqod4/static/js/3.09215460.chunk.js.map",
     "index.html": "/oqod4/index.html",
-    "static/css/main.5c4ac02c.chunk.css.map": "/oqod4/static/css/main.5c4ac02c.chunk.css.map",
+    "static/css/main.c1f31f03.chunk.css.map": "/oqod4/static/css/main.c1f31f03.chunk.css.map",
     "static/js/2.38f9cb29.chunk.js.LICENSE.txt": "/oqod4/static/js/2.38f9cb29.chunk.js.LICENSE.txt",
-    "static/media/logo.0245ecee.png": "/oqod4/static/media/logo.0245ecee.png",
-    "static/media/logo2.a24a5b97.png": "/oqod4/static/media/logo2.a24a5b97.png"
+    "static/media/Logo.a9de3bb3.png": "/oqod4/static/media/Logo.a9de3bb3.png",
+    "static/media/LogoWhite.edc3c6f7.png": "/oqod4/static/media/LogoWhite.edc3c6f7.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ef571ef6.js",
     "static/js/2.38f9cb29.chunk.js",
-    "static/css/main.5c4ac02c.chunk.css",
-    "static/js/main.947a4d2b.chunk.js"
+    "static/css/main.c1f31f03.chunk.css",
+    "static/js/main.12416961.chunk.js"
   ]
 }
