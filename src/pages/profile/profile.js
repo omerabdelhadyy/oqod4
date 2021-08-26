@@ -67,7 +67,7 @@ class Profile extends React.Component {
                 // onClick={() => this.onClickRegister()}
                 style={{
                   backgroundColor: "#AE9B77",
-                  fontSize: "15px",
+                  fontSize: "13px",
                   width: "95%",
                   marginbottom: 30,
                   color: "#fff",

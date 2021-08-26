@@ -1,16 +1,17 @@
 import React from "react";
 import style from "../pages/Home/style.module.css";
 import { Button } from "@material-ui/core";
-import Logo from "../assets/images/logo2.png";
+import Logo from "../assets/images/Logo.png";
 
 class header extends React.Component {
   render() {
     return (
       <div className={style.viewHeader}>
         <img
+          src={Logo}
           onClick={() => this.props.push("/Home")}
           className={style.Logo}
-          src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
+          // src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
           alt="oqod"
           width="160"
           height="55"

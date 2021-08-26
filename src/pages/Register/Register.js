@@ -2,6 +2,7 @@ import React from "react";
 import style from "./style.module.css";
 import { Checkbox, Button } from "@material-ui/core";
 import TextField from "../../compoonent/textField";
+import Logo from "../../assets/images/Logo.png";
 class Register extends React.Component {
   componentDidMount() {
     // console.log("process", process?.env?.REACT_APP_Map);
@@ -25,10 +26,11 @@ class Register extends React.Component {
       <div className={style.continer}>
         <div>
           <img
-            src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
+            src={Logo}
+            // src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
             alt="oqod"
-            width="160"
-            height="55"
+            width="150"
+            height="50"
           />
         </div>
         <div className={style.form}>
@@ -89,16 +91,22 @@ class Register extends React.Component {
               style={{
                 display: "flex",
                 justifyContent: "center",
+                // backgroundColor: "red",
+                marginTop: 0,
+                paddingTop: 0,
               }}
             >
-              <p style={{ fontSize: 13 }}>Already have an account ?</p>
+              <p style={{ fontSize: 13, padding: 0 }}>
+                Already have an account ?
+              </p>
 
               <p
                 style={{
                   cursor: "pointer",
                   marginLeft: 3,
-                  color: "hotpink",
+                  color: "#A79570",
                   fontSize: 13,
+                  padding: 0,
                 }}
                 onClick={() => this.props.history.push("/Login")}
               >

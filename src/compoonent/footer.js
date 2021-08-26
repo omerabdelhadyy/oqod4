@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../pages/Home/style.module.css";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/LogoWhite.png";
 
 class Footer extends React.Component {
   constructor() {
@@ -30,9 +30,9 @@ class Footer extends React.Component {
       <div className={style.footer}>
         <div>
           <img
-            // src={Logo}
+            src={Logo}
             className={style.LogoFooter}
-            src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
+            // src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
             alt="oqod"
           />
         </div>

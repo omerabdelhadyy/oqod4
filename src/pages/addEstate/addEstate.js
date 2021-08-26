@@ -64,7 +64,7 @@ class addEstate extends React.Component {
             />
             <div style={{ width: "50%", margin: 30, marginBottom: 40 }}>
               <Map
-                google={this.props.google}
+                google={this?.props?.google}
                 center={{
                   lat: 30.0384256,
                   lng: 31.1820288,

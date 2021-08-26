@@ -2,6 +2,8 @@ import React from "react";
 import style from "../Register/style.module.css";
 import { Checkbox, Button } from "@material-ui/core";
 import TextField from "../../compoonent/textField";
+import Logo from "../../assets/images/Logo.png";
+
 class Login extends React.Component {
   constructor() {
     super();
@@ -18,10 +20,11 @@ class Login extends React.Component {
       <div className={style.continer}>
         <div>
           <img
-            src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
+            src={Logo}
+            // src="https://oqod.co/static/media/logo-primary.59f3b0bc.png"
             alt="oqod"
-            width="160"
-            height="55"
+            width="150"
+            height="50"
           />
         </div>
         <div className={style.form}>
@@ -62,14 +65,14 @@ class Login extends React.Component {
                 justifyContent: "center",
               }}
             >
-              <p style={{ fontSize: 13 }}>Don’t have an account yet?</p>
+              <p style={{ fontSize: 13 }}>Don’t have an account yet ?</p>
 
               <p
                 style={{
                   fontSize: 13,
                   cursor: "pointer",
                   marginLeft: 3,
-                  color: "hotpink",
+                  color: "#A79570",
                 }}
                 onClick={() => this.props.history.push("/")}
               >
