@@ -11,9 +11,10 @@ class realestate extends React.Component {
         <img
           className={style.imageFind}
           // style={{ borderRadius: 10, marginTop: 10 }}
-          src="https://png.pngtree.com/background/20210711/original/pngtree-network-information-electronic-technology-background-picture-image_1096792.jpg"
+          // src="https://png.pngtree.com/background/20210711/original/pngtree-network-information-electronic-technology-background-picture-image_1096792.jpg"
           // width={300}
           // height={144}
+          src={this?.props?.linkImage}
         />
         <p className={style.pReal}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
