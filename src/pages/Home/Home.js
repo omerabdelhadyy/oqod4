@@ -7,6 +7,8 @@ import Slider from "react-slick";
 import Header from "../../compoonent/header";
 import Footer from "../../compoonent/footer";
 import backGround from "../../assets/images/imageHome.png";
+import Image1 from "../../assets/images/33.png";
+import Image2 from "../../assets/images/44.png";
 
 class Home extends React.Component {
   render() {
@@ -121,9 +123,7 @@ class Home extends React.Component {
             {/* <style>{cssstyle}</style> */}
             <Slider {...settings} arrows={false} className={style.testslider}>
               {people?.map((item, index) => {
-                return (
-                  <Realestate linkImage="https://s3-alpha-sig.figma.com/img/6a34/5c30/c03f76849b5fd18e7eedccb1f433c0ef?Expires=1630886400&Signature=Gwa2JIuNOKbHNcictJ4PtjanzpkZdbY2Jy44yzEhUn6opHXbyNnAHXwvizz794EBKF6uSRLutkZzF66qe8RwzXJl-05vpXlt94NiPSAjK8E0V6ScEQAZkjwa1luZjBLll--8fyVaA1k-~sAcF8j8pIkEz2KkKa2MKtrUYFm667cmMJ2Jpg84mdXN0pcaODg6ygHr6zanaEs7N7frlFQ66pAfrzjFdthAMrUdBNW-HQ-YiLlN2~DViTYtfERKy4kiNGG7kNkOnNNFFtNYVcpIJSSy4cLnQ8p-IZGoRiZzDx64BwmryFO1Fn2b0jR4pXb9wJyyvmW63N~qKVci~s7Cqg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" />
-                );
+                return <Realestate linkImage={Image1} />;
               })}
             </Slider>
           </div>
@@ -145,9 +145,7 @@ class Home extends React.Component {
             {/* <style>{cssstyle}</style> */}
             <Slider {...settings} arrows={false}>
               {people?.map((item, index) => {
-                return (
-                  <Realestate linkImage="https://s3-alpha-sig.figma.com/img/d161/825e/4340c17e2d69b91e90e5f0ff5461d884?Expires=1630886400&Signature=L0mrwdvCOcmJeeM3JOpj~sj~fqiw9kLkDXVgriJsCr3lWoGYvyau0JvSfeqe9qU9KsHo0WhsFZArKAzEfyqJCefABIoCqiWRGHRpFx9joMG0ZxDHNjjOxA8HAlc53SBG6CB5j0x03v0MnMXdfOoduzCoZnrxJY5xBTbc9QU4pRMxkOdjeekX28hetfGavQ6CSzlgd2GKe2pKYgXM~F9fqILyILSf4tZ5O7XUPgxJSXvgr~j-M~KuzvHjTQc0xrewwoPJsveEGPRATZ3fXBxh4958POeU9v7voxqvMrLixrHme5~tyFmhb-PN9SYKUZrPT86XRGrSleE5m-zvWcFCKQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" />
-                );
+                return <Realestate linkImage={Image2} />;
               })}
             </Slider>
           </div>

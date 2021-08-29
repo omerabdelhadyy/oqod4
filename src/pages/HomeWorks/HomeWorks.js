@@ -5,6 +5,7 @@ import TableRow from "../../compoonent/table/table";
 import { Button } from "@material-ui/core";
 import Chart from "../../compoonent/Chart/Chart";
 import Footer from "../../compoonent/footer";
+import Image3 from "../../assets/images/44.png";
 
 class HomeWorks extends React.Component {
   constructor() {
@@ -78,9 +79,7 @@ class HomeWorks extends React.Component {
             >
               <img
                 className={style.imageProperty}
-                src={
-                  "https://s3-alpha-sig.figma.com/img/9d47/fa1f/c5ef69a08c0ac39cf796c016c1263ed4?Expires=1630886400&Signature=Wvp4asJQoVw4TxI8mRedkRZqsHV4v9JCo5c5kfyMyianjChwtKrRLjPRHRG36UmuqlT~8-nwiafngxjNHPKxW71TPMXrxhT6Js9Pg7i6rWNSK0B0Rha0cAv2cJD~yrj-aH4N2Vv2LDjwGfKTDLkD0qUOVcVYZXGv-ly0pLWsu2p9Qag3BVEIW4rNqlXd3cpXx9OSbUk4Jtsi216q4mKyDPwGqPMoM9ehV7MORDxcCetu7ZE~GRLECGa5uVhXYZDH7JT0-Kai9L6gRibjrIYtq4WBMvHCIfBHCG~TVd8Vd9svp4DW~kVONQR45VK3pcMwKp7le8vwTucKMv5YzQovkA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                }
+                src={Image3}
                 // src="https://fustany.com/images/ar/content/header_image_how_to_choose_your_home_furniture_if_you_have_children_fustany_main_image.jpg"
               />
               <div
