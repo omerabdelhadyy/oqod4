@@ -121,7 +121,13 @@ class Home extends React.Component {
               href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
             />
             {/* <style>{cssstyle}</style> */}
-            <Slider {...settings} arrows={false} className={style.testslider}>
+            <Slider
+              {...settings}
+              arrows={false}
+              className={style.testslider}
+              autoplay
+              infinite
+            >
               {people?.map((item, index) => {
                 return <Realestate linkImage={Image1} />;
               })}
@@ -143,7 +149,7 @@ class Home extends React.Component {
               href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
             />
             {/* <style>{cssstyle}</style> */}
-            <Slider {...settings} arrows={false}>
+            <Slider {...settings} arrows={false} autoplay infinite>
               {people?.map((item, index) => {
                 return <Realestate linkImage={Image2} />;
               })}
