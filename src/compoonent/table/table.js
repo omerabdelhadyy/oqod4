@@ -53,6 +53,8 @@ class SimpleTable extends React.Component {
           <h1
             style={{
               fontSize: this.state.width < 700 ? this.state.width / 70 : 12,
+              // backgroundColor: "red",
+              textAlign: "right",
             }}
           >
             QTY
@@ -92,6 +94,8 @@ class SimpleTable extends React.Component {
                   style={{
                     fontSize:
                       this.state.width < 700 ? this.state.width / 70 : 12,
+                    // backgroundColor: "red",
+                    // textAlign: "right",
                   }}
                 >
                   500 tokens
@@ -100,6 +104,33 @@ class SimpleTable extends React.Component {
             );
           })}
         </div>
+        {this.props?.protfilo && (
+          <>
+            <div className={style.Line} style={{ marginTop: "1%" }}></div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <h1
+                style={{
+                  textAlign: "left",
+                  fontSize: this.state.width < 700 ? this.state.width / 70 : 12,
+                  marginTop: 10,
+                  opacity: 0.7,
+                }}
+              >
+                SUMMARY
+              </h1>
+              <h1
+                style={{
+                  textAlign: "right",
+                  fontSize: this.state.width < 700 ? this.state.width / 70 : 12,
+                  marginTop: 10,
+                  opacity: 0.7,
+                }}
+              >
+                $198.77
+              </h1>
+            </div>
+          </>
+        )}
       </div>
     );
   }

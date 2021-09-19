@@ -1,0 +1,69 @@
+.continer {
+  /* width: max-content; */
+  margin: 5%;
+  margin-top: 20px;
+  margin-bottom: 10%;
+  /* background-color: cadetblue; */
+}
+.form {
+  /* height: 200px; */
+  width: 80%;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 8px;
+  padding-top: 2%;
+}
+
+.form h1 {
+  margin: 0%;
+  padding: 0%;
+}
+.divButton {
+  display: flex;
+  /* background-color: red; */
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-inline: 20px;
+}
+.divButton button {
+  border: none;
+  cursor: pointer;
+  background-color: #ae9b77;
+  /* font-size: 16px; */
+  font-weight: 600;
+  width: 90px;
+  height: 35px;
+  color: #fff;
+  text-align: "center";
+  text-transform: "capitalize";
+  border-radius: 8px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.19);
+  border-color: rgb(148, 133, 133);
+  border-color: rgb(138, 113, 93);
+  margin-inline: 10px;
+  border: #ae9b77;
+  border-width: 1px;
+  border-style: solid;
+}
+.cashbalance {
+  /* background-color: red; */
+  display: flex;
+  text-align: center;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+.cashbalance h1 {
+  margin-left: 20px;
+  font-size: 18px;
+
+  /* background-color: aqua; */
+}
+.cashbalance span {
+  color: #000;
+  font-size: 30px;
+  /* font-weight: 640; */
+  padding: 0%;
+  margin: 0%;
+}

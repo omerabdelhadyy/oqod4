@@ -1,0 +1,22 @@
+.continer {
+  background-color: #faf7f7;
+  padding-inline: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+}
+.continer h2 {
+  color: #000;
+}
+.iconeArrow {
+  background-color: #ede4e4;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 50px;
+  height: 40px;
+  margin-block: 8px;
+  border-radius: 5px;
+  /* margin: 0% auto; */
+}

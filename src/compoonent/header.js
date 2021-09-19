@@ -30,7 +30,7 @@ class header extends React.Component {
         </p>
         <p
           className={style.ButtonHeader}
-          // onClick={() => this.props.history.push("/")}
+          onClick={() => this.props.push("/ProtfolioValue")}
         >
           Blogs
         </p>

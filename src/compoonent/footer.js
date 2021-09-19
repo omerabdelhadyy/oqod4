@@ -62,7 +62,7 @@ class Footer extends React.Component {
               style={{
                 fontSize: this.state.width < 900 ? this.state.width / 60 : 15,
               }}
-              // onClick={() => this.props.history.push("/")}
+              onClick={() => this.props.push("/ProtfolioValue")}
             >
               Blog
             </h2>

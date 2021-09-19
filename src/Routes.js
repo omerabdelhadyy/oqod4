@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import AddEstate from "./pages/addEstate/addEstate";
 import HomeWorks from "./pages/HomeWorks/HomeWorks";
 import Profile from "./pages/profile/profile";
+import ProtfolloValue from "./pages/protfolloValue/protfolloValue";
 
 class Routes extends Component {
   constructor() {
@@ -26,6 +27,7 @@ class Routes extends Component {
     return (
       <BrowserRouter>
         <Switch>
+          <Route path={"/ProtfolioValue"} component={ProtfolloValue} />
           <Route path={"/Profile"} component={Profile} />
           <Route path={"/HomeWorks"} component={HomeWorks} />
           <Route path={"/Create"} component={AddEstate} />
