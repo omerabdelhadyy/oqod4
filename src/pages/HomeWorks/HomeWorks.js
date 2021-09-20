@@ -303,20 +303,9 @@ class HomeWorks extends React.Component {
               </div>
             </div>
             <div className={style.divTokenPrice}>
-              <h1>Token Price: $50</h1>
-              <button
-                style={{
-                  width: this.state.width / 12,
-                  maxWidth: 80,
-                  height: this.state.width / 22,
-                  maxHeight: 30,
-                }}
-                className={style.ButtonList}
-                onClick={() => this.setState({ visibleBuy: true })}
-              >
-                Buy
-              </button>
-              {item?.userId == this?.state?.userData?.user?.id && (
+              <h1 style={{ marginTop: 10 }}>Token Price: $50</h1>
+
+              {item?.userId == this?.state?.userData?.user?.id ? (
                 <button
                   style={{
                     backgroundColor: "#fff",
@@ -333,6 +322,19 @@ class HomeWorks extends React.Component {
                   onClick={() => this.setState({ visibleSell: true })}
                 >
                   Sell
+                </button>
+              ) : (
+                <button
+                  style={{
+                    width: this.state.width / 12,
+                    maxWidth: 80,
+                    height: this.state.width / 22,
+                    maxHeight: 30,
+                  }}
+                  className={style.ButtonList}
+                  onClick={() => this.setState({ visibleBuy: true })}
+                >
+                  Buy
                 </button>
               )}
             </div>
