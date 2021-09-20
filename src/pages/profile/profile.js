@@ -10,7 +10,7 @@ class Profile extends React.Component {
     return (
       <>
         <div className={style.continer}>
-          <Header push={this.props.history.push} />
+          <Header push={this.props.history.push} type="profile" />
           <h1
             style={{
               textAlign: "left",
@@ -36,6 +36,12 @@ class Profile extends React.Component {
                 />
               </div>
               <h1 className={style.textEdit}>Edit Profile</h1>
+              <button
+                className={style.buttonProtfolio}
+                onClick={() => this.props.history.push("/ProtfolioValue")}
+              >
+                Protfolio Value
+              </button>
             </div>
             <div className={style.inputs}>
               <TextField

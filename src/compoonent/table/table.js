@@ -54,7 +54,7 @@ class SimpleTable extends React.Component {
             style={{
               fontSize: this.state.width < 700 ? this.state.width / 70 : 12,
               // backgroundColor: "red",
-              textAlign: "right",
+              // textAlign: "right",
             }}
           >
             QTY

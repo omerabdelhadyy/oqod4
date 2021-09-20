@@ -41,14 +41,14 @@ class Map extends React.Component {
       this?.state?.mapPosition.lng
     ).then(
       (response) => {
-        console.log("omerrr");
+        // console.log("omerrr");
         const address = response.results[0].formatted_address,
           addressArray = response.results[0].address_components,
           city = this.getCity(addressArray),
           area = this.getArea(addressArray),
           state = this.getState(addressArray);
 
-        console.log("city", city, area, state);
+        // console.log("city", city, area, state);
 
         this.setState({
           address: address ? address : "",
@@ -163,13 +163,14 @@ class Map extends React.Component {
    * @param event
    */
   onMarkerDragEnd = (event) => {
-    console.log("event", event.latLng);
+    // console.log("event", event.latLng);
     let newLat = event.latLng.lat(),
       newLng = event.latLng.lng(),
       addressArray = [];
     Geocode.fromLatLng(newLat, newLng).then(
       (response) => {
-        console.log("resss", response);
+        // console.log("resss", response);
+        this.props.address(response.results[0].formatted_address);
         const address = response.results[0].formatted_address,
           addressArray = response.results[0].address_components,
           city = this.getCity(addressArray),
@@ -197,6 +198,7 @@ class Map extends React.Component {
   };
 
   onPlaceSelected = (place) => {
+    this.props.address(place?.formatted_address);
     const address = place?.formatted_address,
       addressArray = place?.address_components,
       city = this.getCity(addressArray),

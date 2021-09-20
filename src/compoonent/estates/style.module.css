@@ -11,6 +11,7 @@
   /* align-items: center; */
   /* justify-content: center; */
   /* align-self: flex-end; */
+  cursor: pointer;
 }
 .continerReal {
   /* margin-inline: 10px; */

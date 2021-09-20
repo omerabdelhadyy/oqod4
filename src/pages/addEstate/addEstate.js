@@ -8,16 +8,23 @@ import ImageSelect from "../../compoonent/ImageSelect/imageSelect";
 import { Button } from "@material-ui/core";
 import Footer from "../../compoonent/footer";
 import WallpaperIcon from "@material-ui/icons/Wallpaper";
+import { get, post } from "../../services/axios";
 
 class addEstate extends React.Component {
   constructor() {
     super();
     this.state = {
+      Title: "",
       latitude: 0,
       longitude: 0,
       dataImage: [],
       income: false,
       dataPropety_Deed: [],
+      address: "",
+      Description: "",
+      Area: "",
+      tokenizationRatio: 3,
+      errorMessage: null,
     };
   }
 
@@ -47,10 +54,30 @@ class addEstate extends React.Component {
   };
 
   getFile() {
-    console.log("omer");
+    // console.log("omer");
     var fu1 = document.getElementById("FileUpload1");
     // document.getElementById('f')
     // document.getElementById("upfile").click();
+  }
+  CreateProperty() {
+    const { Title, address, Description, Area, tokenizationRatio } = this.state;
+    let body = {
+      title: Title,
+      address: address,
+      description: Description,
+      area: Area,
+      tokenizationRatio: Number(tokenizationRatio),
+    };
+    // console.log("test", body);
+    post("realEstate/create", body)
+      .then((res) => {
+        this.setState({ errorMessage: res?.data?.message });
+        console.log("res", res?.data);
+      })
+      .catch((error) => {
+        this.setState({ errorMessage: error.response.data?.data?.[0] });
+        console.log("error", error.response.data?.data?.[0]);
+      });
   }
   render() {
     return (
@@ -60,10 +87,11 @@ class addEstate extends React.Component {
           <div className={style.inputs}>
             <TextField
               label="Title"
-              value={(Full_Name) => this.setState({ Full_Name })}
+              value={(Title) => this.setState({ Title })}
             />
             <div style={{ width: "50%", margin: 30, marginBottom: 40 }}>
               <Map
+                address={(address) => this.setState({ address })}
                 google={this?.props?.google}
                 center={{
                   lat: 30.0384256,
@@ -75,7 +103,7 @@ class addEstate extends React.Component {
             </div>
             <TextField
               label="Description"
-              value={(Full_Name) => this.setState({ Full_Name })}
+              value={(Description) => this.setState({ Description })}
             />
             <div className={style.picImage}>
               <h1 className={style.textLabel}>Pictures</h1>
@@ -127,7 +155,7 @@ class addEstate extends React.Component {
               <TextField
                 width={"40%"}
                 label="Area"
-                value={(Full_Name) => this.setState({ Full_Name })}
+                value={(Area) => this.setState({ Area })}
               />
               <TextField
                 income={(text) => this.setState({ income: text })}
@@ -194,7 +222,9 @@ class addEstate extends React.Component {
                 <TextField
                   width={"20%"}
                   // label="Area"
-                  value={(Full_Name) => this.setState({ Full_Name })}
+                  value={(tokenizationRatio) =>
+                    this.setState({ tokenizationRatio })
+                  }
                 />
                 <p
                   style={{
@@ -214,8 +244,22 @@ class addEstate extends React.Component {
                 />
               </div>
             </div>
+            {this.state.errorMessage && (
+              <h1
+                style={{
+                  margin: 0,
+                  padding: 0,
+                  color: this.state.errorMessage.includes("successfully")
+                    ? "green"
+                    : "red",
+                  fontSize: 12,
+                }}
+              >
+                {this.state.errorMessage}
+              </h1>
+            )}
             <Button
-              onClick={() => this.onClickLogin()}
+              onClick={() => this.CreateProperty()}
               style={{
                 backgroundColor: "#AE9B77",
                 fontSize: "15",

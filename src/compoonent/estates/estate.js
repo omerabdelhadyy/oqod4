@@ -6,9 +6,20 @@ import Image from "../../assets/images/22.png";
 
 class estate extends React.Component {
   render() {
+    const { data } = this.props;
+
+    //     User: {email: 'jon@example.com'}
+    // address: "12 street"
+    // area: "15000 m2"
+    // createdAt: "2021-09-20T07:13:55.000Z"
+    // description: "third real estate on the system"
+    // id: 1
+    // title: "Real Estate 3"
+    // updatedAt: "2021-09-20T07:13:55.000Z"
+    // userId: 1
     return (
-      <div className={style.continer}>
-        <h1 className={style.textProperty}>Property #1</h1>
+      <div className={style.continer} onClick={this.props.onClick}>
+        <h1 className={style.textProperty}>{data?.title}</h1>
         <img
           className={style.ImageCard}
           // src="https://ap.rdcpix.com/cfb0064b155a8f8d4bfb05e6722020efl-m3439388063od-w480_h360_x2.webp"
@@ -16,7 +27,7 @@ class estate extends React.Component {
           // src="https://s3-alpha-sig.figma.com/img/f64a/3058/854db4c9bb7cb383c754ea234b34c894?Expires=1630886400&Signature=G0pgIKpuZyOafY1tIZfLpeHGZlc~NPJfnWz2CCq4VP3PxlYqpZ0Hl~kLHvx2NNz049qI104HpfWTEuStA8Pv8PqmFLkeQzIoqbLQ38o2AjkO1xUwMXf0vurZ70A90teLDgEKbDqfpKtrieji6WgvPoc27pT1b6VgfJlxGtCEao9xNc5b~lfcYW0fgwWiXuFhC4tYTrbya3LfOkI8nUtvp~bf36WXdF~w93gaF2aeGVVmAMX0NTX51khmO1s2H5bFEXOEFlQqzHEfWiJPapSVf0KYtAUsMrOvcSh9Kqf3bZ~kKKFbuBM7KcQgRGcTVa1dk-GdD8wBeenMqLRLOTqWUg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
         />
         <div className={style.divCArdRow}>
-          <p>Price: $450</p>
+          <p>Price: $50</p>
           <button className={style.ButtonList}>Buy</button>
         </div>
         <div className={style.divProgressBar}>

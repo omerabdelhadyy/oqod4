@@ -3,6 +3,8 @@ import style from "../Register/style.module.css";
 import { Checkbox, Button } from "@material-ui/core";
 import TextField from "../../compoonent/textField";
 import Logo from "../../assets/images/Logo.png";
+import { post } from "../../services/axios";
+import { setItem } from "../../services/storage";
 
 class Login extends React.Component {
   constructor() {
@@ -10,11 +12,27 @@ class Login extends React.Component {
     this.state = {
       Email: "",
       Password: "",
+      error: false,
     };
   }
   onClickLogin = () => {
-    this.props.history.push("/Home");
+    const { Password, Email } = this.state;
+    let body = {
+      password: Password,
+      email: Email,
+    };
+    post("auth/login", body)
+      .then((res) => {
+        this.setState({ error: false });
+        setItem("userData", res?.data?.data);
+        this.props.history.push("/Home");
+      })
+      .catch((error) => {
+        this.setState({ error: true });
+        console.log("error", error?.response?.data);
+      });
   };
+
   render() {
     return (
       <div className={style.continer}>
@@ -42,6 +60,9 @@ class Login extends React.Component {
               label="Password"
               value={(Password) => this.setState({ Password })}
             />
+            {this.state.error && (
+              <p className={style.errorMessage}>Wrong email or password</p>
+            )}
 
             <Button
               onClick={() => this.onClickLogin()}

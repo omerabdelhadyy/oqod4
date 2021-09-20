@@ -137,6 +137,7 @@ class textField extends React.Component {
               id="filled-basic"
               label={label}
               variant="outlined"
+              onChange={(t) => value(t.target.value)}
               className={style.TextField}
               size="small"
               type={this.state?.showPassword ? "text" : "password"}

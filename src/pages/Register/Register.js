@@ -3,10 +3,16 @@ import style from "./style.module.css";
 import { Checkbox, Button } from "@material-ui/core";
 import TextField from "../../compoonent/textField";
 import Logo from "../../assets/images/Logo.png";
+import { post } from "../../services/axios";
+import Popup from "../../compoonent/popup";
 class Register extends React.Component {
   componentDidMount() {
-    // console.log("process", process?.env?.REACT_APP_Map);
+    // localStorage.setItem("lastname", "testttomer");
   }
+  testStorge = async () => {
+    // let test = await localStorage.getItem("lastname");
+    // console.log(test);
+  };
   constructor() {
     super();
     this.state = {
@@ -16,14 +22,35 @@ class Register extends React.Component {
       Phone_Number: "",
       Password: "",
       Repeat_Password: "",
+      errorMessage: null,
+      checked: false,
     };
   }
   onClickRegister = () => {
+    const { Full_Name, Phone_Number, Password, Email, Repeat_Password } =
+      this.state;
     console.log(this.state.Full_Name, this.state.Email);
+    let body = {
+      name: Full_Name,
+      phoneNumber: Phone_Number,
+      password: Password == Repeat_Password ? Password : null,
+      email: Email,
+    };
+    console.log("pass", this.state.Password);
+    post("auth/register", body)
+      .then((res) => {
+        this.props.history.push("/Login");
+        console.log("res", res?.data);
+      })
+      .catch((error) => {
+        this.setState({ errorMessage: error?.response?.data.message });
+        console.log("error", error?.response?.data);
+      });
   };
   render() {
     return (
       <div className={style.continer}>
+        <Popup />
         <div>
           <img
             src={Logo}
@@ -68,10 +95,21 @@ class Register extends React.Component {
               value={(Repeat_Password) => this.setState({ Repeat_Password })}
             />
             <div className={style.Checkbox}>
-              <Checkbox color="default" style={{ padding: 0 }} />
+              <Checkbox
+                color="default"
+                style={{ padding: 0 }}
+                onChange={(event) =>
+                  this.setState({ checked: event.target.checked })
+                }
+              />
               <p className={style.textAccept}>Accept Terms & Service</p>
             </div>
+            {this.state.errorMessage?.length && (
+              <p className={style.errorMessage}>{this.state.errorMessage}</p>
+            )}
             <Button
+              disabled={!this.state.checked}
+              // onClick={() => this.testStorge()}
               onClick={() => this.onClickRegister()}
               style={{
                 backgroundColor: "#AE9B77",
@@ -82,6 +120,7 @@ class Register extends React.Component {
                 textAlign: "center",
                 textTransform: "capitalize",
                 marginTop: 10,
+                opacity: !this.state.checked ? 0.6 : 1,
               }}
               variant="contained"
             >

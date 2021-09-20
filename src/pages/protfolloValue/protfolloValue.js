@@ -40,7 +40,7 @@ class ProtfolloValue extends React.Component {
     return (
       <>
         <div className={style.continer}>
-          <Header push={this.props.history.push} />
+          <Header push={this.props.history.push} type="profile" />
           <div className={style.form}>
             <div className={style.divButton}>
               <h1
