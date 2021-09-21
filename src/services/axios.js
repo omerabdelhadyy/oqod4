@@ -11,9 +11,11 @@ export const post = async (url, requestData) => {
 };
 export const get = async (url, requestData) => {
   const userData = await getItem("userData");
-  return axios.get(`http://35.172.137.48:8000/${url}`, requestData, {
-    headers: { Authorization: userData?.token },
-  });
+  return axios.get(
+    `http://35.172.137.48:8000/${url}`,
+    { headers: { Authorization: userData?.token } },
+    requestData
+  );
 };
 
 // export const sendMessage = async (requestData, url) => {

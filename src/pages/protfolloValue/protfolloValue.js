@@ -4,6 +4,9 @@ import style from "./style.module.css";
 import TableRow from "../../compoonent/table/table";
 import Transaction from "../../compoonent/Transaction/transaction";
 import Footer from "../../compoonent/footer";
+import { getItem } from "../../services/storage";
+import { get, post } from "../../services/axios";
+import { Modal } from "@material-ui/core";
 
 class ProtfolloValue extends React.Component {
   constructor() {
@@ -11,22 +14,64 @@ class ProtfolloValue extends React.Component {
     this.state = {
       width: 0,
       height: 0,
+      Cash_Balance: 0,
+      showSendModal: false,
+      tokenCount: 1,
+      idSend: 0,
+      toEmail: "",
+      errorMessage: "",
       dataAsk: [
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
       ],
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
-  componentDidMount() {
+  componentDidMount = async () => {
+    get("wallet/balance", {})
+      .then((res) => {
+        this.setState({ dataAsk: res?.data?.data });
+        let chash_balace = 0;
+        res?.data?.data.map(
+          (item, index) => (chash_balace = chash_balace + item?.balance)
+        );
+        console.log("res", res?.data?.data);
+        this.setState({ Cash_Balance: chash_balace * 50 });
+      })
+      .catch((error) => console.log("error", error?.response?.data));
     this.updateWindowDimensions();
     window.addEventListener("resize", this.updateWindowDimensions);
-  }
+  };
+  SendToken = async () => {
+    this.setState({ errorMessage: "" });
+    const { toEmail, idSend, tokenCount } = this.state;
+    let body = {
+      toEmail,
+      tokenId: idSend,
+      amount: Number(tokenCount),
+    };
+    post("wallet/sell", body)
+      .then((res) => {
+        this.setState({ errorMessage: "successful Send" });
+        setTimeout(() => {
+          this.setState({ showSendModal: false });
+          window.location.reload();
+        }, 1000);
+        console.log("res", res?.data?.data);
+      })
+      .catch((error) => {
+        this.setState({
+          errorMessage:
+            error.response.data?.data?.[0] || error.response.data?.message,
+        });
+        console.log("error", error?.response?.data);
+      });
+  };
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateWindowDimensions);
@@ -36,10 +81,70 @@ class ProtfolloValue extends React.Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
     // console.log(this.state.height);
   }
+
+  popupBuy = () => {
+    return (
+      <Modal
+        open={this.state.showSendModal}
+        onClose={() => this.setState({ showSendModal: false })}
+        className={style.customStyles}
+        style={{ backgroundColor: "#fff" }}
+        // contentLabel="Example Modal"
+      >
+        <div className={style.divPopupBuy}>
+          <p
+            onClick={() => this.setState({ showSendModal: false })}
+            className={style.exitModal}
+          >
+            ×
+          </p>
+          <h1>token price $50</h1>
+          <h1>What is the tokenid you want to send ?</h1>
+          <input
+            style={{ marginBlock: 10 }}
+            onChange={(text) => this.setState({ idSend: text.target.value })}
+          />
+          <h1>How many codes do you want to sell ?</h1>
+          <input
+            style={{ marginBlock: 10 }}
+            onChange={(text) =>
+              this.setState({ tokenCount: text.target.value })
+            }
+          />
+          <h1 style={{ fontSize: 16 }}>
+            Please enter the email of the person you want to Send to.
+          </h1>
+          <input
+            type="email"
+            style={{ width: "60%", fontSize: 13 }}
+            onChange={(text) => this.setState({ toEmail: text.target.value })}
+          />
+
+          <p>
+            price $
+            {this.state.tokenCount == "" ? 50 : this.state.tokenCount * 50}
+          </p>
+          <p
+            style={{
+              color: this.state.errorMessage?.includes?.("successful")
+                ? "green"
+                : "red",
+            }}
+          >
+            {this.state.errorMessage}
+          </p>
+          <button className={style.ButtonList} onClick={() => this.SendToken()}>
+            Send
+          </button>
+        </div>
+      </Modal>
+    );
+  };
   render() {
     return (
       <>
         <div className={style.continer}>
+          {this.popupBuy()}
           <Header push={this.props.history.push} type="profile" />
           <div className={style.form}>
             <div className={style.divButton}>
@@ -58,6 +163,7 @@ class ProtfolloValue extends React.Component {
                     fontSize:
                       this.state.width < 900 ? this.state.width / 60 : 15,
                   }}
+                  onClick={() => this.setState({ showSendModal: true })}
                 >
                   Send
                 </button>
@@ -96,7 +202,7 @@ class ProtfolloValue extends React.Component {
                       this.state.width < 900 ? this.state.width / 30 : 30,
                   }}
                 >
-                  1.877
+                  {this.state.Cash_Balance}
                 </span>
               </h1>
             </div>
