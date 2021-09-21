@@ -31,9 +31,9 @@ class Routes extends Component {
           <Route path={"/Profile"} component={Profile} />
           <Route path={"/HomeWorks"} component={HomeWorks} />
           <Route path={"/Create"} component={AddEstate} />
-          <Route path={"/Home"} component={Home} />
-          <Route path={"/Login"} component={Login} />
-          <Route path={"/"} component={Register} />
+          <Route path={"/"} component={Home} />
+          {/* <Route path={"/Login"} component={Login} />
+          <Route path={"/"} component={Register} /> */}
         </Switch>
         {/* {redirectToLogin && <Redirect to={"/"} />} */}
       </BrowserRouter>
