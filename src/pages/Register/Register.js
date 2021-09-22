@@ -43,7 +43,10 @@ class Register extends React.Component {
         console.log("res", res?.data);
       })
       .catch((error) => {
-        this.setState({ errorMessage: error?.response?.data.message });
+        this.setState({
+          errorMessage:
+            error.response.data?.data?.[0] || error?.response?.data.message,
+        });
         console.log("error", error?.response?.data);
       });
   };
@@ -64,36 +67,50 @@ class Register extends React.Component {
           <h1 className={style.textReg}>Registration</h1>
           <div className={style.line}></div>
           <div className={style.inputs}>
-            <TextField
-              width="100%"
-              label="Full Name"
-              value={(Full_Name) => this.setState({ Full_Name })}
-            />
-            <TextField
-              width="100%"
-              label="Email"
-              value={(Email) => this.setState({ Email })}
-            />
-            <TextField
-              width="100%"
-              label="National ID"
-              value={(National_ID) => this.setState({ National_ID })}
-            />
-            <TextField
-              width="100%"
-              label="Phone Number"
-              value={(Phone_Number) => this.setState({ Phone_Number })}
-            />
-            <TextField
-              width="100%"
-              label="Password"
-              value={(Password) => this.setState({ Password })}
-            />
-            <TextField
-              width="100%"
-              label="Repeat Password"
-              value={(Repeat_Password) => this.setState({ Repeat_Password })}
-            />
+            <form
+              onKeyPress={(e) => {
+                // console.log(e);
+                if (e?.key === "Enter" && this.state.checked) {
+                  this?.onClickRegister?.();
+                }
+              }}
+            >
+              <TextField
+                disablemultiline
+                width="100%"
+                label="Full Name"
+                value={(Full_Name) => this.setState({ Full_Name })}
+              />
+              <TextField
+                disablemultiline
+                width="100%"
+                label="Email"
+                value={(Email) => this.setState({ Email })}
+              />
+              <TextField
+                disablemultiline
+                width="100%"
+                label="National ID"
+                value={(National_ID) => this.setState({ National_ID })}
+              />
+              <TextField
+                disablemultiline
+                width="100%"
+                label="Phone Number"
+                value={(Phone_Number) => this.setState({ Phone_Number })}
+              />
+              <TextField
+                width="100%"
+                label="Password"
+                value={(Password) => this.setState({ Password })}
+              />
+              <TextField
+                disablemultiline
+                width="100%"
+                label="Repeat Password"
+                value={(Repeat_Password) => this.setState({ Repeat_Password })}
+              />
+            </form>
             <div className={style.Checkbox}>
               <Checkbox
                 color="default"

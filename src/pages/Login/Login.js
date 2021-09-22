@@ -11,11 +11,13 @@ class Login extends React.Component {
     super();
     this.state = {
       Email: "",
-      Password: "",
+      Password: "0",
       error: false,
     };
   }
   onClickLogin = () => {
+    // e.preventDefault();
+    this.setState({ error: false });
     const { Password, Email } = this.state;
     let body = {
       password: Password,
@@ -49,22 +51,33 @@ class Login extends React.Component {
           <h1 className={style.textReg}>Log in</h1>
           <div className={style.line}></div>
           <div className={style.inputs}>
-            <TextField
-              width="100%"
-              label="Email"
-              value={(Email) => this.setState({ Email })}
-            />
+            <form
+              onKeyPress={(e) => {
+                // console.log(e);
+                if (e?.key === "Enter") {
+                  this?.onClickLogin?.();
+                }
+              }}
+            >
+              <TextField
+                disablemultiline
+                width="100%"
+                label="Email"
+                value={(Email) => this.setState({ Email })}
+              />
 
-            <TextField
-              width="100%"
-              label="Password"
-              value={(Password) => this.setState({ Password })}
-            />
+              <TextField
+                width="100%"
+                label="Password"
+                value={(Password) => this.setState({ Password })}
+              />
+            </form>
             {this.state.error && (
               <p className={style.errorMessage}>Wrong email or password</p>
             )}
 
             <Button
+              type="submit"
               onClick={() => this.onClickLogin()}
               style={{
                 backgroundColor: "#AE9B77",

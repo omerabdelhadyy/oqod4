@@ -98,6 +98,8 @@ class textField extends React.Component {
         {this.state.income ? (
           label != "Password" && label != "Repeat Password" ? (
             <TextField
+              onKeyPress={this.props.onKeyPress}
+              // ={() => console.log("test")}
               InputLabelProps={{
                 style: {
                   fontSize: this.state.width < 800 ? this.state.width / 50 : 14,
@@ -110,7 +112,7 @@ class textField extends React.Component {
                 },
               }}
               defaultValue={placeHolder}
-              multiline={true}
+              multiline={this.props.disablemultiline ? false : true}
               // style={{ fontSize: 0, color: "red" }}
               disabled={label == "Address" && true}
               onChange={(t) => value(t.target.value)}

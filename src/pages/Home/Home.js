@@ -114,7 +114,7 @@ class Home extends React.Component {
           </h1>
           <div className={style.estates}>
             {this.state?.realEstate?.map?.((item, index) => {
-              // console.log("item", item);
+              console.log("item", item);
               return (
                 <Estate
                   onClick={() =>
