@@ -174,9 +174,12 @@ h2 {
   text-align: "center";
   text-transform: "capitalize";
   border-radius: 10px;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.1);
   border-color: rgb(148, 133, 133);
   border-color: rgb(138, 113, 93);
+  border: solid;
+  border-width: 2px;
+  border-color: #ae9b77;
 }
 
 .continerSlide {
@@ -246,6 +249,10 @@ h2 {
   color: rgb(230, 26, 26);
   background-color: red;
 } */
+.divButtonLogin {
+  display: flex;
+  align-items: center;
+}
 @media only screen and (max-width: 1100px) {
   .estates {
     display: grid;

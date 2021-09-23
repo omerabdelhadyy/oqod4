@@ -17,19 +17,26 @@ class Home extends React.Component {
     super();
     this.state = {
       realEstate: [],
+      user: [],
     };
   }
   componentDidMount = async () => {
-    // this.setState({ user: await getItem("userData") });
-    // console.log(await getItem("userData"));
+    window.onpopstate = (e) => {
+      if (e?.srcElement?.location?.pathname === "/Login") {
+        this.props.history.push("/Home");
+      }
+    };
+
+    this.setState({ user: await getItem("userData") });
     get("realEstate/all", [])
       .then((res) => {
         this.setState({ realEstate: res?.data?.data });
-        console.log("res", res?.data?.data);
-        console.log("tt", this.state.realEstate);
+        // console.log("res", res?.data?.data);
+        // console.log("tt", this.state.realEstate);
       })
       .catch((error) => console.log("err", error?.response?.data));
   };
+
   render() {
     var settings = {
       dots: true,
@@ -48,15 +55,6 @@ class Home extends React.Component {
             dots: true,
           },
         },
-        // {
-        //   breakpoint: 680,
-        //   settings: {
-        //     slidesToShow: 1,
-        //     slidesToScroll: 1,
-        //     initialSlide: 1,
-        //     dots: true,
-        //   },
-        // },
         {
           breakpoint: 650,
           settings: {
@@ -98,9 +96,19 @@ class Home extends React.Component {
                 <br /> adipiscing elit, sed do eiusmod.
               </p>
               <button
-                onClick={() => this.props.history.push("/Create")}
+                onClick={() => {
+                  if (this.state?.user?.token) {
+                    this.props.history.push("/Create");
+                  } else {
+                    this.props.history.push("/Login");
+                  }
+                }}
                 className={style.ButtonList}
-                style={{ backgroundColor: "#fff", color: "#ae9b77" }}
+                style={{
+                  backgroundColor: "#fff",
+                  color: "#ae9b77",
+                  borderWidth: 0,
+                }}
               >
                 List Property
               </button>
@@ -114,14 +122,17 @@ class Home extends React.Component {
           </h1>
           <div className={style.estates}>
             {this.state?.realEstate?.map?.((item, index) => {
-              console.log("item", item);
               return (
                 <Estate
-                  onClick={() =>
-                    this.props.history.push("/HomeWorks", {
-                      item,
-                    })
-                  }
+                  onClick={() => {
+                    if (this.state?.user?.token) {
+                      this.props.history.push("/HomeWorks", {
+                        item,
+                      });
+                    } else {
+                      this.props.history.push("/Login");
+                    }
+                  }}
                   data={item}
                 />
               );

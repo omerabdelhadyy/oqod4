@@ -7,15 +7,18 @@ import AddEstate from "./pages/addEstate/addEstate";
 import HomeWorks from "./pages/HomeWorks/HomeWorks";
 import Profile from "./pages/profile/profile";
 import ProtfolloValue from "./pages/protfolloValue/protfolloValue";
+import { getItem } from "./services/storage";
 
 class Routes extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      // redirectToLogin: false,
+    };
   }
 
-  componentDidMount = async () => {
-    // const usertoken = await window.sessionStorage.getItem("usertoken");
+  componentWillUnmount = async () => {
+    // const usertoken = await getItem('userData').token;
     // if (!usertoken) {
     //   this.setState({ redirectToLogin: true });
     // }
@@ -31,9 +34,9 @@ class Routes extends Component {
           <Route path={"/Profile"} component={Profile} />
           <Route path={"/HomeWorks"} component={HomeWorks} />
           <Route path={"/Create"} component={AddEstate} />
+          <Route path={"/Login"} component={Login} />
+          <Route path={"/register"} component={Register} />
           <Route path={"/"} component={Home} />
-          {/* <Route path={"/Login"} component={Login} />
-          <Route path={"/"} component={Register} /> */}
         </Switch>
         {/* {redirectToLogin && <Redirect to={"/"} />} */}
       </BrowserRouter>
