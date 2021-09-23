@@ -6,23 +6,14 @@ import { Button } from "@material-ui/core";
 import Chart from "../../compoonent/Chart/Chart";
 import Footer from "../../compoonent/footer";
 import Image3 from "../../assets/images/44.png";
+import Image4 from "../../assets/images/33.png";
+import Image5 from "../../assets/images/22.png";
+import Image6 from "../../assets/images/11.png";
 import { Modal } from "@material-ui/core";
 import { get, post } from "../../services/axios";
 import { getItem } from "../../services/storage";
+import ImageSlider from "ac-react-simple-image-slider";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "#fff",
-    alignItems: "center",
-    borderRadius: 10,
-  },
-};
 class HomeWorks extends React.Component {
   constructor() {
     super();
@@ -33,6 +24,12 @@ class HomeWorks extends React.Component {
       visibleBuy: false,
       visibleSell: false,
       userData: [],
+      images: [
+        { src: Image3 },
+        { src: Image4 },
+        { src: Image5 },
+        { src: Image6 },
+      ],
       toEmail: "",
       Message: "",
       dataAsk: [
@@ -266,11 +263,29 @@ class HomeWorks extends React.Component {
                 // overflow: "scroll",
               }}
             >
-              <img
+              {/* <img
                 className={style.imageProperty}
                 src={Image3}
                 // src="https://fustany.com/images/ar/content/header_image_how_to_choose_your_home_furniture_if_you_have_children_fustany_main_image.jpg"
+              /> */}
+
+              <ImageSlider
+                // width={"300px"}
+                duration={5}
+                width={`${this.state.width / 2}px`}
+                height={
+                  this.state.width > 600
+                    ? `${this.state.width / 3.6}px`
+                    : "185px"
+                }
+                data={this.state.images}
+                showBullets={false}
+                showNavs={true}
+                navStyle={2}
+                navSize={this.state.width / 35}
+                itemStyles={{ borderRadius: 12 }}
               />
+
               <div
                 style={{
                   width: "50%",
@@ -338,7 +353,7 @@ class HomeWorks extends React.Component {
                 </button>
               )}
             </div>
-            <div className={style.divSell}>
+            {/* <div className={style.divSell}>
               <div className={style.HeadDivSell}>
                 <div className={style.bodyDivSell}>
                   <select
@@ -378,7 +393,6 @@ class HomeWorks extends React.Component {
                     }}
                   />
                 </div>
-                {/* <h1></h1> */}
 
                 <div
                   style={{
@@ -439,7 +453,7 @@ class HomeWorks extends React.Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className={style.Chart}>
               <Chart />
             </div>
