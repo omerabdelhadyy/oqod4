@@ -15,6 +15,13 @@ class Login extends React.Component {
       error: false,
     };
   }
+  componentDidMount = () => {
+    // window.onpopstate = (e) => {
+    //   if (e?.srcElement?.location?.pathname === "/Home") {
+    //     this.props.history.push("/Home");
+    //   }
+    // };
+  };
   onClickLogin = () => {
     // e.preventDefault();
     this.setState({ error: false });
@@ -108,7 +115,7 @@ class Login extends React.Component {
                   marginLeft: 3,
                   color: "#A79570",
                 }}
-                onClick={() => this.props.history.push("/")}
+                onClick={() => this.props.history.push("/register")}
               >
                 Register
               </p>

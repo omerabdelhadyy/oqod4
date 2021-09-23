@@ -21,11 +21,20 @@ class Home extends React.Component {
     };
   }
   componentDidMount = async () => {
-    window.onpopstate = (e) => {
-      if (e?.srcElement?.location?.pathname === "/Login") {
-        this.props.history.push("/Home");
-      }
-    };
+    if (!this.state.user?.token) {
+      window.onpopstate = (e) => {
+        console.log(e?.srcElement?.location?.pathname);
+        if (
+          e?.srcElement?.location?.pathname != "/Login"
+          //    e?.srcElement?.location?.pathname == "/Create" ||
+          //    e?.srcElement?.location?.pathname == "/HomeWorks" ||
+          //    e?.srcElement?.location?.pathname == "/profile" ||
+          //    e?.srcElement?.location?.pathname == "/ProtfolioValue"
+        ) {
+          this.props.history.push("/Home");
+        }
+      };
+    }
 
     this.setState({ user: await getItem("userData") });
     get("realEstate/all", [])
