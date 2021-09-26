@@ -34,13 +34,66 @@ class HomeWorks extends React.Component {
       toEmail: "",
       Message: "",
       dataAsk: [
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
+        {
+          QTY: "500 ",
+          name: "omer",
+          price: "$11.75",
+          QTY: "500 tokens",
+        },
+        {
+          QTY: "500 tokens",
+          name: "hussien",
+          price: "$10.5",
+          QTY: "200 tokens",
+        },
+        {
+          QTY: "500 tokens",
+          name: "nasr",
+          price: "$9.75",
+          QTY: "300 tokens",
+        },
+        {
+          QTY: "500 tokens",
+          name: "maged",
+          price: "$5.00",
+          QTY: "100 tokens",
+        },
+        {
+          QTY: "500 tokens",
+          name: "mostafa",
+          price: "$11.00",
+          QTY: "400 tokens",
+        },
+        {
+          QTY: "500 tokens",
+          name: "ammar",
+          price: "$11.75",
+          QTY: "50 tokens",
+        },
+        {
+          QTY: "500 tokens",
+          name: "hussien",
+          price: "$11.75",
+          QTY: "500 tokens",
+        },
+        {
+          QTY: "500 tokens",
+          name: "omer",
+          price: "$11.75",
+          QTY: "500 tokens",
+        },
+        {
+          QTY: "500 tokens",
+          name: "ahmed",
+          price: "$11.75",
+          QTY: "500 tokens",
+        },
+        {
+          QTY: "500 tokens",
+          name: "omer",
+          price: "$11.75",
+          QTY: "500 tokens",
+        },
       ],
       dataAsk2: [
         { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
@@ -303,16 +356,19 @@ class HomeWorks extends React.Component {
                   width: "50%",
                 }}
               >
-                <div
+                {/* <div
                   // className={style.divForm}
-                  style={{ height: this.state.width / 9 }}
-                >
-                  <TableRow
-                    data={this.state.dataAsk}
-                    height={this.state.width / 8.5}
-                  />
-                </div>
-                <h1
+                  style={{
+                    height: this.state.width / 8,
+                    backgroundColor: "red",
+                  }}
+                > */}
+                <TableRow
+                  data={this.state.dataAsk}
+                  height={this.state.width / 4.3}
+                />
+                {/* </div> */}
+                {/* <h1
                   style={{
                     margin: 10,
                     fontSize: this.state.width / 85,
@@ -326,7 +382,7 @@ class HomeWorks extends React.Component {
                   data={this.state.dataAsk2}
                   height={this.state.width / 16}
                   // height={40}
-                />
+                /> */}
               </div>
             </div>
             <div className={style.divTokenPrice}>

@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./style.module.css";
+import ButtonCom from "../../compoonent/button";
 
 class SimpleTable extends React.Component {
   constructor() {
@@ -57,11 +58,12 @@ class SimpleTable extends React.Component {
                   fontSize: this.state.width < 700 ? this.state.width / 70 : 12,
                 }}
               >
-                ASK
+                owner
               </h1>
               <h1
                 style={{
                   fontSize: this.state.width < 700 ? this.state.width / 70 : 12,
+                  width: "12%",
                 }}
               >
                 QTY
@@ -69,11 +71,14 @@ class SimpleTable extends React.Component {
               <h1
                 style={{
                   fontSize: this.state.width < 700 ? this.state.width / 70 : 12,
+                  width: "14%",
+                  // backgroundColor: "red",
+                  textAlign: "right",
                 }}
               >
-                BID
+                price
               </h1>
-              <h1
+              {/* <h1
                 style={{
                   fontSize: this.state.width < 700 ? this.state.width / 70 : 12,
                   // backgroundColor: "red",
@@ -81,7 +86,8 @@ class SimpleTable extends React.Component {
                 }}
               >
                 QTY
-              </h1>
+              </h1> */}
+              <h1 />
             </>
           )}
         </div>
@@ -122,7 +128,7 @@ class SimpleTable extends React.Component {
                           this.state.width < 700 ? this.state.width / 70 : 12,
                       }}
                     >
-                      $11.50
+                      {item?.name}
                     </h1>
                     <h1
                       style={{
@@ -130,26 +136,35 @@ class SimpleTable extends React.Component {
                           this.state.width < 700 ? this.state.width / 70 : 12,
                       }}
                     >
-                      500 tokens
-                    </h1>
-                    <h1
-                      style={{
-                        fontSize:
-                          this.state.width < 700 ? this.state.width / 70 : 12,
-                      }}
-                    >
-                      $11.50
+                      {item?.QTY}
                     </h1>
                     <h1
                       style={{
                         fontSize:
                           this.state.width < 700 ? this.state.width / 70 : 12,
                         // backgroundColor: "red",
-                        // textAlign: "right",
                       }}
                     >
-                      500 tokens
+                      {item?.price}
                     </h1>
+
+                    <div style={{ marginTop: 0 }}>
+                      <ButtonCom
+                        textButton="Send Offer"
+                        onClick={() => {}}
+                        // backgroundColor="#fff"
+                        // color="#ae9b77"
+                        height={
+                          this.state.width > 900 ? this.state.width / 50 : 23
+                        }
+                        width={
+                          this.state.width > 900 ? this.state.width / 15 : 40
+                        }
+                        fontSize={
+                          this.state.width > 900 ? this.state.width / 135 : 7
+                        }
+                      />
+                    </div>
                   </>
                 )}
               </div>
