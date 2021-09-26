@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./style.module.css";
-import { Button } from "@material-ui/core";
+// import { Button } from "@material-ui/core";
 import Estate from "../../compoonent/estates/estate";
 import Realestate from "../../compoonent/estates/realEstates";
 import Slider from "react-slick";
@@ -11,6 +11,8 @@ import Image1 from "../../assets/images/33.png";
 import Image2 from "../../assets/images/44.png";
 import { getItem } from "../../services/storage";
 import { get } from "../../services/axios";
+import Loading from "../../compoonent/loading";
+import Button from "../../compoonent/button";
 
 class Home extends React.Component {
   constructor() {
@@ -18,8 +20,13 @@ class Home extends React.Component {
     this.state = {
       realEstate: [],
       user: [],
+      loadingg: true,
+      width: 0,
+      height: 0,
     };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
+
   componentDidMount = async () => {
     if (!this.state.user?.token) {
       window.onpopstate = (e) => {
@@ -39,12 +46,26 @@ class Home extends React.Component {
     this.setState({ user: await getItem("userData") });
     get("realEstate/all", [])
       .then((res) => {
+        this.setState({ loadingg: false });
         this.setState({ realEstate: res?.data?.data });
         // console.log("res", res?.data?.data);
         // console.log("tt", this.state.realEstate);
       })
-      .catch((error) => console.log("err", error?.response?.data));
+      .catch((error) => {
+        this.setState({ loadingg: false });
+        console.log("err", error?.response?.data);
+      });
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
   };
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+    // console.log(this.state.height);
+  }
 
   render() {
     var settings = {
@@ -104,7 +125,22 @@ class Home extends React.Component {
                 <br /> do eiusmod.Lorem ipsum dolor sit amet, consectetur
                 <br /> adipiscing elit, sed do eiusmod.
               </p>
-              <button
+              <Button
+                textButton="List Property"
+                onClick={() => {
+                  if (this.state?.user?.token) {
+                    this.props.history.push("/Create");
+                  } else {
+                    this.props.history.push("/Login");
+                  }
+                }}
+                backgroundColor="#fff"
+                color="#ae9b77"
+                height={this.state.width > 900 ? this.state.width / 35 : 23}
+                width={this.state.width > 900 ? this.state.width / 10 : 70}
+                fontSize={this.state.width > 900 ? this.state.width / 100 : 7}
+              />
+              {/* <button
                 onClick={() => {
                   if (this.state?.user?.token) {
                     this.props.history.push("/Create");
@@ -120,7 +156,7 @@ class Home extends React.Component {
                 }}
               >
                 List Property
-              </button>
+              </button> */}
             </div>
           </div>
           <h1
@@ -129,24 +165,35 @@ class Home extends React.Component {
           >
             Latest Investment Opportunities
           </h1>
-          <div className={style.estates}>
-            {this.state?.realEstate?.map?.((item, index) => {
-              return (
-                <Estate
-                  onClick={() => {
-                    if (this.state?.user?.token) {
-                      this.props.history.push("/HomeWorks", {
-                        item,
-                      });
-                    } else {
-                      this.props.history.push("/Login");
-                    }
-                  }}
-                  data={item}
-                />
-              );
-            })}
-          </div>
+          {this.state.loadingg ? (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Loading />
+            </div>
+          ) : (
+            <div className={style.estates}>
+              {this.state?.realEstate?.map?.((item, index) => {
+                return (
+                  <Estate
+                    onClick={() => {
+                      if (this.state?.user?.token) {
+                        this.props.history.push("/HomeWorks", {
+                          item,
+                        });
+                      } else {
+                        this.props.history.push("/Login");
+                      }
+                    }}
+                    data={item}
+                  />
+                );
+              })}
+            </div>
+          )}
           <div className={style.textabout}>
             <h1
               className={style.textLatest}

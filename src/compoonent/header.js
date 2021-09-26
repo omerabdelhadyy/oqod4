@@ -1,8 +1,9 @@
 import React from "react";
 import style from "../pages/Home/style.module.css";
-import { Button } from "@material-ui/core";
+// import { Button } from "@material-ui/core";
 import Logo from "../assets/images/Logo.png";
 import { getItem, removeItem } from "../services/storage";
+import Button from "../compoonent/button";
 
 class header extends React.Component {
   constructor() {
@@ -89,25 +90,22 @@ class header extends React.Component {
               />
               Welcom {this.state.user?.user?.name}
             </div>
-            <button
-              className={style.ButtonList}
+            <Button
+              textButton="sign out"
               onClick={() => this.signOut()}
-              style={{
-                height: this.state.width > 900 ? this.state.width / 35 : 23,
-                width: this.state.width > 900 ? this.state.width / 15 : 40,
-                fontSize: this.state.width > 900 ? this.state.width / 100 : 7,
-                backgroundColor: "#fff",
-                color: "#ae9b77",
-              }}
-            >
-              sign out
-            </button>
-            <button
-              className={style.ButtonList}
+              backgroundColor="#fff"
+              color="#ae9b77"
+              height={this.state.width > 900 ? this.state.width / 35 : 23}
+              width={this.state.width > 900 ? this.state.width / 15 : 40}
+              fontSize={this.state.width > 900 ? this.state.width / 100 : 7}
+            />
+            <Button
+              textButton="List Property"
               onClick={() => this.props.push("/Create")}
-            >
-              List Property
-            </button>
+              height={this.state.width > 900 ? this.state.width / 32 : 23}
+              width={this.state.width > 900 ? this.state.width / 10 : 60}
+              fontSize={this.state.width > 900 ? this.state.width / 100 : 7}
+            />
           </>
         ) : (
           <div className={style.divButtonLogin}>

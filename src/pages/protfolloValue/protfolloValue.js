@@ -7,6 +7,8 @@ import Footer from "../../compoonent/footer";
 import { getItem } from "../../services/storage";
 import { get, post } from "../../services/axios";
 import { Modal } from "@material-ui/core";
+import Loading from "../../compoonent/loading";
+import Button from "../../compoonent/button";
 
 class ProtfolloValue extends React.Component {
   constructor() {
@@ -20,6 +22,8 @@ class ProtfolloValue extends React.Component {
       idSend: 0,
       toEmail: "",
       errorMessage: "",
+      loadingg: true,
+
       dataAsk: [
         // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
         // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
@@ -32,6 +36,7 @@ class ProtfolloValue extends React.Component {
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
+
   componentDidMount = async () => {
     get("wallet/balance", {})
       .then((res) => {
@@ -42,11 +47,16 @@ class ProtfolloValue extends React.Component {
         );
         console.log("res", res?.data?.data);
         this.setState({ Cash_Balance: chash_balace * 50 });
+        this.setState({ loadingg: false });
       })
-      .catch((error) => console.log("error", error?.response?.data));
+      .catch((error) => {
+        this.setState({ loadingg: false });
+        console.log("error", error?.response?.data);
+      });
     this.updateWindowDimensions();
     window.addEventListener("resize", this.updateWindowDimensions);
   };
+
   SendToken = async () => {
     this.setState({ errorMessage: "" });
     const { toEmail, idSend, tokenCount } = this.state;
@@ -133,9 +143,18 @@ class ProtfolloValue extends React.Component {
           >
             {this.state.errorMessage}
           </p>
-          <button className={style.ButtonList} onClick={() => this.SendToken()}>
+          <Button
+            onClick={() => this.SendToken()}
+            textButton="Send"
+            // backgroundColor="#fff"
+            // color="#ae9b77"
+            height={this.state.width > 900 ? this.state.width / 40 : 33}
+            width={this.state.width > 900 ? this.state.width / 15 : 80}
+            fontSize={this.state.width > 900 ? this.state.width / 100 : 12}
+          />
+          {/* <button className={style.ButtonList} onClick={() => this.SendToken()}>
             Send
-          </button>
+          </button> */}
         </div>
       </Modal>
     );
@@ -156,57 +175,68 @@ class ProtfolloValue extends React.Component {
                 Protfolio Value
               </h1>
               <div style={{ margin: 0, padding: 0, display: "flex" }}>
-                <button
-                  style={{
-                    width: this.state.width < 900 ? this.state.width / 10 : 90,
-                    height: this.state.width < 900 ? this.state.width / 20 : 35,
-                    fontSize:
-                      this.state.width < 900 ? this.state.width / 60 : 15,
-                  }}
+                <Button
                   onClick={() => this.setState({ showSendModal: true })}
-                >
-                  Send
-                </button>
-                <button
-                  style={{
-                    backgroundColor: "#fff",
-                    color: "#ae9b77",
-                    width: this.state.width < 900 ? this.state.width / 10 : 90,
-                    height: this.state.width < 900 ? this.state.width / 20 : 35,
-                    fontSize:
-                      this.state.width < 900 ? this.state.width / 60 : 15,
-                  }}
-                >
-                  Receive
-                </button>
+                  textButton="Send"
+                  // backgroundColor="#fff"
+                  // color="#ae9b77"
+                  height={this.state.width > 900 ? this.state.width / 35 : 23}
+                  width={this.state.width > 900 ? this.state.width / 15 : 40}
+                  fontSize={this.state.width > 900 ? this.state.width / 100 : 7}
+                />
+                <Button
+                  textButton="Receive"
+                  onClick={() => this.signOut()}
+                  backgroundColor="#fff"
+                  color="#ae9b77"
+                  height={this.state.width > 900 ? this.state.width / 35 : 23}
+                  width={this.state.width > 900 ? this.state.width / 15 : 40}
+                  fontSize={this.state.width > 900 ? this.state.width / 100 : 7}
+                />
               </div>
             </div>
-            <div className={style.cashbalance}>
-              <h1
+
+            {this.state.loadingg ? (
+              <div
                 style={{
-                  marginBottom: 4,
-                  fontSize: this.state.width < 900 ? this.state.width / 60 : 13,
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
-                Cash Balance
-              </h1>
-              <h1
-                style={{
-                  fontSize: this.state.width < 900 ? this.state.width / 50 : 15,
-                }}
-              >
-                $
-                <span
-                  style={{
-                    fontSize:
-                      this.state.width < 900 ? this.state.width / 30 : 30,
-                  }}
-                >
-                  {this.state.Cash_Balance}
-                </span>
-              </h1>
-            </div>
-            <TableRow data={this.state.dataAsk} protfilo />
+                <Loading />
+              </div>
+            ) : (
+              <>
+                <div className={style.cashbalance}>
+                  <h1
+                    style={{
+                      marginBottom: 4,
+                      fontSize:
+                        this.state.width < 900 ? this.state.width / 60 : 13,
+                    }}
+                  >
+                    Cash Balance
+                  </h1>
+                  <h1
+                    style={{
+                      fontSize:
+                        this.state.width < 900 ? this.state.width / 50 : 15,
+                    }}
+                  >
+                    $
+                    <span
+                      style={{
+                        fontSize:
+                          this.state.width < 900 ? this.state.width / 30 : 30,
+                      }}
+                    >
+                      {this.state.Cash_Balance}
+                    </span>
+                  </h1>
+                </div>
+                <TableRow data={this.state.dataAsk} protfilo />
+              </>
+            )}
           </div>
           <div
             className={style.form}

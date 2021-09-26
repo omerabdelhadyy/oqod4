@@ -4,8 +4,30 @@ import Header from "../../compoonent/header";
 import TextField from "../../compoonent/textField";
 import { Button } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
+import ButtonCom from "../../compoonent/button";
 
 class Profile extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      width: 0,
+      height: 0,
+    };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+  componentDidMount = async () => {
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
   render() {
     return (
       <>
@@ -36,12 +58,32 @@ class Profile extends React.Component {
                 />
               </div>
               <h1 className={style.textEdit}>Edit Profile</h1>
-              <button
+              {/* <button
                 className={style.buttonProtfolio}
                 onClick={() => this.props.history.push("/ProtfolioValue")}
               >
                 Protfolio Value
-              </button>
+              </button> */}
+              <div
+                style={{
+                  marginTop: "5%",
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <ButtonCom
+                  textButton="Protfolio Value"
+                  onClick={() => this.props.history.push("/ProtfolioValue")}
+                  // backgroundColor="#fff"
+                  // color="#ae9b77"
+                  height={this.state.width > 1200 ? this.state.width / 32 : 33}
+                  width={this.state.width > 1200 ? this.state.width / 9 : 100}
+                  fontSize={
+                    this.state.width > 900 ? this.state.width / 100 : 10
+                  }
+                />
+              </div>
             </div>
             <div className={style.inputs}>
               <TextField

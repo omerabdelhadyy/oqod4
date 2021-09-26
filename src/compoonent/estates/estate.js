@@ -1,22 +1,35 @@
 import React from "react";
 import style from "./style.module.css";
-import { Button } from "@material-ui/core";
+// import { Button } from "@material-ui/core";
 import ProgressBar from "@ramonak/react-progress-bar";
 import Image from "../../assets/images/22.png";
+import Button from "../button";
 
 class estate extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      width: 0,
+      height: 0,
+    };
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  componentDidMount = async () => {
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+    // console.log(this.state.height);
+  }
   render() {
     const { data } = this.props;
-
-    //     User: {email: 'jon@example.com'}
-    // address: "12 street"
-    // area: "15000 m2"
-    // createdAt: "2021-09-20T07:13:55.000Z"
-    // description: "third real estate on the system"
-    // id: 1
-    // title: "Real Estate 3"
-    // updatedAt: "2021-09-20T07:13:55.000Z"
-    // userId: 1
     return (
       <div className={style.continer} onClick={this.props.onClick}>
         <h1 className={style.textProperty}>{data?.title}</h1>
@@ -28,7 +41,15 @@ class estate extends React.Component {
         />
         <div className={style.divCArdRow}>
           <p>Price: $50</p>
-          <button className={style.ButtonList}>Buy</button>
+          <Button
+            textButton="Buy"
+            // backgroundColor="#fff"
+            // color="#ae9b77"
+            height={this.state.width > 900 ? this.state.width / 46 : 20}
+            width={this.state.width > 900 ? this.state.width / 22 : 35}
+            fontSize={this.state.width > 900 ? this.state.width / 110 : 6}
+          />
+          {/* <button className={style.ButtonList}>Buy</button> */}
         </div>
         <div className={style.divProgressBar}>
           <ProgressBar

@@ -13,6 +13,7 @@ import { Modal } from "@material-ui/core";
 import { get, post } from "../../services/axios";
 import { getItem } from "../../services/storage";
 import ImageSlider from "ac-react-simple-image-slider";
+import ButtonCom from "../../compoonent/button";
 
 class HomeWorks extends React.Component {
   constructor() {
@@ -149,9 +150,13 @@ class HomeWorks extends React.Component {
           >
             {this.state.Message}
           </p>
-          <button className={style.ButtonList} onClick={() => this.BuyToken()}>
-            Buy
-          </button>
+          <ButtonCom
+            textButton="Buy"
+            onClick={() => this.BuyToken()}
+            height={this.state.width > 900 ? this.state.width / 45 : 30}
+            width={this.state.width > 900 ? this.state.width / 20 : 70}
+            fontSize={this.state.width > 900 ? this.state.width / 105 : 12}
+          />
         </div>
       </Modal>
     );
@@ -214,9 +219,16 @@ class HomeWorks extends React.Component {
           >
             {this.state.Message}
           </p>
-          <button className={style.ButtonList} onClick={() => this.SellToken()}>
+          <ButtonCom
+            textButton="Sell"
+            onClick={() => this.SellToken()}
+            height={this.state.width > 900 ? this.state.width / 45 : 30}
+            width={this.state.width > 900 ? this.state.width / 20 : 70}
+            fontSize={this.state.width > 900 ? this.state.width / 105 : 12}
+          />
+          {/* <button className={style.ButtonList} onClick={() => this.SellToken()}>
             Sell
-          </button>
+          </button> */}
         </div>
       </Modal>
     );
@@ -318,39 +330,26 @@ class HomeWorks extends React.Component {
               </div>
             </div>
             <div className={style.divTokenPrice}>
-              <h1 style={{ marginTop: 10 }}>Token Price: $50</h1>
+              <h1 style={{ marginTop: 0 }}>Token Price: $50</h1>
 
               {item?.userId == this?.state?.userData?.user?.id ? (
-                <button
-                  style={{
-                    backgroundColor: "#fff",
-                    color: "#AE9B77",
-                    borderWidth: 1,
-                    borderColor: "#AE9B77",
-                    borderStyle: "solid",
-                    width: this.state.width / 12,
-                    maxWidth: 80,
-                    height: this.state.width / 22,
-                    maxHeight: 30,
-                  }}
-                  className={style.ButtonList}
+                <ButtonCom
+                  textButton="Sell"
                   onClick={() => this.setState({ visibleSell: true })}
-                >
-                  Sell
-                </button>
+                  backgroundColor="#fff"
+                  color="#ae9b77"
+                  height={this.state.width > 900 ? this.state.width / 40 : 23}
+                  width={this.state.width > 900 ? this.state.width / 20 : 40}
+                  fontSize={this.state.width > 900 ? this.state.width / 105 : 7}
+                />
               ) : (
-                <button
-                  style={{
-                    width: this.state.width / 12,
-                    maxWidth: 80,
-                    height: this.state.width / 22,
-                    maxHeight: 30,
-                  }}
-                  className={style.ButtonList}
+                <ButtonCom
+                  textButton="Buy"
                   onClick={() => this.setState({ visibleBuy: true })}
-                >
-                  Buy
-                </button>
+                  height={this.state.width > 900 ? this.state.width / 40 : 23}
+                  width={this.state.width > 900 ? this.state.width / 20 : 40}
+                  fontSize={this.state.width > 900 ? this.state.width / 105 : 7}
+                />
               )}
             </div>
             {/* <div className={style.divSell}>
