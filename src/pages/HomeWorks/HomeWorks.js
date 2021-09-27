@@ -33,76 +33,38 @@ class HomeWorks extends React.Component {
       ],
       toEmail: "",
       Message: "",
-      dataAsk: [
-        {
-          QTY: "500 ",
-          name: "omer",
-          price: "$11.75",
-          QTY: "500 tokens",
-        },
-        {
-          QTY: "500 tokens",
-          name: "hussien",
-          price: "$10.5",
-          QTY: "200 tokens",
-        },
-        {
-          QTY: "500 tokens",
-          name: "nasr",
-          price: "$9.75",
-          QTY: "300 tokens",
-        },
-        {
-          QTY: "500 tokens",
-          name: "maged",
-          price: "$5.00",
-          QTY: "100 tokens",
-        },
-        {
-          QTY: "500 tokens",
-          name: "mostafa",
-          price: "$11.00",
-          QTY: "400 tokens",
-        },
-        {
-          QTY: "500 tokens",
-          name: "ammar",
-          price: "$11.75",
-          QTY: "50 tokens",
-        },
-        {
-          QTY: "500 tokens",
-          name: "hussien",
-          price: "$11.75",
-          QTY: "500 tokens",
-        },
-        {
-          QTY: "500 tokens",
-          name: "omer",
-          price: "$11.75",
-          QTY: "500 tokens",
-        },
-        {
-          QTY: "500 tokens",
-          name: "ahmed",
-          price: "$11.75",
-          QTY: "500 tokens",
-        },
-        {
-          QTY: "500 tokens",
-          name: "omer",
-          price: "$11.75",
-          QTY: "500 tokens",
-        },
-      ],
-      dataAsk2: [
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-      ],
+      incoming: [],
+      outgoing: [],
+      dataAsk: [],
+      dataAsk2: [],
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
   componentDidMount = async () => {
+    get(`offer/incoming/${this.props?.location?.state.item?.id}`)
+      .then((res) => {
+        console.log("incoming", res?.data);
+        this.setState({ incoming: res?.data?.data });
+      })
+      .catch((error) => {
+        console.log("error", error?.response?.data);
+      });
+    get(`offer/outgoing/${this.props?.location?.state.item?.id}`)
+      .then((res) => {
+        console.log("outgoing", res?.data);
+        this.setState({ outgoing: res?.data?.data });
+      })
+      .catch((error) => {
+        console.log("error", error?.response?.data);
+      });
+    get(`selling/available/${this.props?.location?.state.item?.id}`, {})
+      .then((res) => {
+        console.log("available", res?.data);
+        this.setState({ dataAsk: res?.data?.data });
+      })
+      .catch((error) => {
+        console.log("error", error?.response?.data);
+      });
     this.setState({ userData: await getItem?.("userData") });
     this.updateWindowDimensions();
     window.addEventListener("resize", this.updateWindowDimensions);
@@ -322,9 +284,77 @@ class HomeWorks extends React.Component {
               </p>
             </div>
             <div
+              style={{
+                display: "flex",
+                alignItems: "self-start",
+                // backgroundColor: "red",
+                justifyContent: "space-between",
+                width: "97%",
+              }}
+            >
+              {this.state.incoming.length ? (
+                <div>
+                  <h1
+                    style={{
+                      marginTop: 0,
+                      padding: 0,
+                      marginLeft: 10,
+                      marginBottom: 10,
+                      fontSize:
+                        this.state.width > 900 ? this.state.width / 80 : 10,
+                    }}
+                  >
+                    Purchase orders
+                  </h1>
+                  <TableRow
+                    incoming
+                    price={this.props?.location?.state.item?.price}
+                    data={this.state.incoming}
+                    maxHeight={this.state.width / 4.3}
+                    width={this.state.width / 2.33}
+                  />
+                </div>
+              ) : (
+                <div />
+              )}
+              {this.state.outgoing?.length ? (
+                <div
+                  style={
+                    {
+                      // marginLeft: "3.6%",
+                      // alignItems: "flex-end",
+                      // float: "right",
+                    }
+                  }
+                >
+                  <h1
+                    style={{
+                      marginTop: 0,
+                      padding: 0,
+                      marginLeft: 10,
+                      marginBottom: 10,
+                      fontSize:
+                        this.state.width > 900 ? this.state.width / 80 : 10,
+                    }}
+                  >
+                    My requests
+                  </h1>
+                  <TableRow
+                    outgoing
+                    incoming
+                    price={this.props?.location?.state.item?.price}
+                    data={this.state.outgoing}
+                    maxHeight={this.state.width / 4.3}
+                    width={this.state.width / 2.8}
+                  />
+                </div>
+              ) : null}
+            </div>
+            <div
               className={style.divImage}
               style={{
                 height: this.state.width / 4,
+                margin: 10,
                 // overflow: "scroll",
               }}
             >
@@ -356,16 +386,22 @@ class HomeWorks extends React.Component {
                   width: "50%",
                 }}
               >
-                {/* <div
-                  // className={style.divForm}
+                <h1
                   style={{
-                    height: this.state.width / 8,
-                    backgroundColor: "red",
+                    margin: 0,
+                    padding: 0,
+                    marginLeft: 10,
+                    marginBottom: 10,
+                    fontSize:
+                      this.state.width > 900 ? this.state.width / 80 : 10,
                   }}
-                > */}
+                >
+                  incoming offers
+                </h1>
                 <TableRow
+                  price={this.props?.location?.state.item?.price}
                   data={this.state.dataAsk}
-                  height={this.state.width / 4.3}
+                  height={this.state.width / 4.6}
                 />
                 {/* </div> */}
                 {/* <h1
@@ -386,7 +422,9 @@ class HomeWorks extends React.Component {
               </div>
             </div>
             <div className={style.divTokenPrice}>
-              <h1 style={{ marginTop: 0 }}>Token Price: $50</h1>
+              <h1 style={{ marginTop: 0 }}>
+                Token Price: ${this.props?.location?.state.item?.price}
+              </h1>
 
               {item?.userId == this?.state?.userData?.user?.id ? (
                 <ButtonCom

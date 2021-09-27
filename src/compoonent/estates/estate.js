@@ -40,7 +40,7 @@ class estate extends React.Component {
           // src="https://s3-alpha-sig.figma.com/img/f64a/3058/854db4c9bb7cb383c754ea234b34c894?Expires=1630886400&Signature=G0pgIKpuZyOafY1tIZfLpeHGZlc~NPJfnWz2CCq4VP3PxlYqpZ0Hl~kLHvx2NNz049qI104HpfWTEuStA8Pv8PqmFLkeQzIoqbLQ38o2AjkO1xUwMXf0vurZ70A90teLDgEKbDqfpKtrieji6WgvPoc27pT1b6VgfJlxGtCEao9xNc5b~lfcYW0fgwWiXuFhC4tYTrbya3LfOkI8nUtvp~bf36WXdF~w93gaF2aeGVVmAMX0NTX51khmO1s2H5bFEXOEFlQqzHEfWiJPapSVf0KYtAUsMrOvcSh9Kqf3bZ~kKKFbuBM7KcQgRGcTVa1dk-GdD8wBeenMqLRLOTqWUg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
         />
         <div className={style.divCArdRow}>
-          <p>Price: $50</p>
+          <p>Price: ${data?.price}</p>
           <Button
             textButton="Buy"
             // backgroundColor="#fff"

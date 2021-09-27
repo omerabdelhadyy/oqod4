@@ -30,7 +30,7 @@ class Home extends React.Component {
   componentDidMount = async () => {
     if (!this.state.user?.token) {
       window.onpopstate = (e) => {
-        console.log(e?.srcElement?.location?.pathname);
+        // console.log(e?.srcElement?.location?.pathname);
         if (
           e?.srcElement?.location?.pathname != "/Login"
           //    e?.srcElement?.location?.pathname == "/Create" ||
@@ -48,12 +48,12 @@ class Home extends React.Component {
       .then((res) => {
         this.setState({ loadingg: false });
         this.setState({ realEstate: res?.data?.data });
-        // console.log("res", res?.data?.data);
+        console.log("res", res?.data?.data);
         // console.log("tt", this.state.realEstate);
       })
       .catch((error) => {
         this.setState({ loadingg: false });
-        console.log("err", error?.response?.data);
+        console.log("err", error);
       });
     this.updateWindowDimensions();
     window.addEventListener("resize", this.updateWindowDimensions);

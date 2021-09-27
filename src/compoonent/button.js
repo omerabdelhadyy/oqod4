@@ -11,20 +11,24 @@ class button extends React.Component {
       fontSize,
       onClick,
       textButton,
+      disabled,
+      opacity,
+      incoming,
     } = this.props;
     return (
       <button
+        disabled={disabled}
         onClick={onClick}
         className={style.Button}
-        style={{ height, width, backgroundColor, color, fontSize }}
-        //   onClick={() => this.signOut()}
-        //   style={{
-        //     height: this.state.width > 900 ? this.state.width / 35 : 23,
-        //     width: this.state.width > 900 ? this.state.width / 15 : 40,
-        //     fontSize: this.state.width > 900 ? this.state.width / 100 : 7,
-        //     backgroundColor: "#fff",
-        //     color: "#ae9b77",
-        //   }}
+        style={{
+          height,
+          width,
+          backgroundColor,
+          color,
+          fontSize,
+          opacity,
+          border: incoming && "none",
+        }}
       >
         {textButton}
       </button>

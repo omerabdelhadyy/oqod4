@@ -9,12 +9,14 @@ import { Button } from "@material-ui/core";
 import Footer from "../../compoonent/footer";
 import WallpaperIcon from "@material-ui/icons/Wallpaper";
 import { get, post } from "../../services/axios";
+import { getItem } from "../../services/storage";
 
 class addEstate extends React.Component {
   constructor() {
     super();
     this.state = {
       Title: "",
+      price: 0,
       latitude: 0,
       longitude: 0,
       dataImage: [],
@@ -27,6 +29,9 @@ class addEstate extends React.Component {
       errorMessage: null,
     };
   }
+  componentDidMount = async () => {
+    console.log("userData", await getItem("userData").token);
+  };
 
   picImage = () => {};
 
@@ -60,13 +65,15 @@ class addEstate extends React.Component {
     // document.getElementById("upfile").click();
   }
   CreateProperty() {
-    const { Title, address, Description, Area, tokenizationRatio } = this.state;
+    const { Title, address, Description, Area, tokenizationRatio, price } =
+      this.state;
     let body = {
       title: Title,
-      address: address,
+      address,
       description: Description,
       area: Area,
       tokenizationRatio: Number(tokenizationRatio),
+      price: Number(price),
     };
     // console.log("test", body);
     post("realEstate/create", body)
@@ -75,8 +82,15 @@ class addEstate extends React.Component {
         console.log("res", res?.data);
       })
       .catch((error) => {
-        this.setState({ errorMessage: error.response.data?.data?.[0] });
-        console.log("error", error.response.data?.data?.[0]);
+        this.setState({
+          errorMessage:
+            error.response.data?.data?.[0] || error.response.data?.message,
+        });
+        console.log(
+          "error",
+          error.response.data?.data?.[0] || error.response.data?.message,
+          body
+        );
       });
   }
   render() {
@@ -156,6 +170,11 @@ class addEstate extends React.Component {
                 width={"40%"}
                 label="Area"
                 value={(Area) => this.setState({ Area })}
+              />
+              <TextField
+                width={"40%"}
+                label="price"
+                value={(price) => this.setState({ price })}
               />
               <TextField
                 income={(text) => this.setState({ income: text })}
