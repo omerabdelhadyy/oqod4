@@ -330,8 +330,7 @@ class HomeWorks extends React.Component {
                     incoming
                     price={this.props?.location?.state.item?.price}
                     data={this.state.incoming}
-                    height={this.state.width / 10}
-                    // maxHeight={this.state.width / 4.3}
+                    maxHeightScrrol={this.state.width / 13}
                     width={this.state.width / 2.33}
                   />
                 </div>
@@ -365,8 +364,7 @@ class HomeWorks extends React.Component {
                     incoming
                     price={this.props?.location?.state.item?.price}
                     data={this.state.outgoing}
-                    height={this.state.width / 10}
-                    // maxHeight={this.state.width / 4.3}
+                    maxHeightScrrol={this.state.width / 13}
                     width={this.state.width / 2.8}
                   />
                 </div>
@@ -444,8 +442,9 @@ class HomeWorks extends React.Component {
                 <TableRow
                   transaction
                   data={this.state.transaction}
+                  maxHeightScrrol={this.state.width / 7}
                   // maxHeight={this.state.width / 4.3}
-                  height={this.state.width / 8}
+                  // height={this.state.width / 8}
                   // height={40}
                 />
               </>

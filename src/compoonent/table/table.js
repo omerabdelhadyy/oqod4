@@ -233,8 +233,16 @@ class SimpleTable extends React.Component {
     );
   };
   render() {
-    const { classes, data, height, heightt, price, maxHeight, width } =
-      this.props;
+    const {
+      classes,
+      data,
+      height,
+      heightt,
+      price,
+      maxHeight,
+      width,
+      maxHeightScrrol,
+    } = this.props;
     return (
       <div className={style.continetTable} style={{ height, maxHeight, width }}>
         {this.popupSendOffer()}
@@ -410,7 +418,10 @@ class SimpleTable extends React.Component {
           )}
         </div>
         <div className={style.Line}></div>
-        <div className={style.continerScrrol} style={{ heightt }}>
+        <div
+          className={style.continerScrrol}
+          style={{ heightt, maxHeight: maxHeightScrrol }}
+        >
           {data?.map?.((item, index) => {
             return (
               <div className={style.disc}>
