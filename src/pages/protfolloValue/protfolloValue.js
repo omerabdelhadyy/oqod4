@@ -23,30 +23,28 @@ class ProtfolloValue extends React.Component {
       toEmail: "",
       errorMessage: "",
       loadingg: true,
-
-      dataAsk: [
-        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-        // { QTY: "500 tokens", BID: "$11.50", Ask: "$11.75", QTY: "500 tokens" },
-      ],
+      dataAsk: [],
+      transaction: [],
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount = async () => {
-    get("wallet/balance", {})
+    get("transaction", {})
       .then((res) => {
-        this.setState({ dataAsk: res?.data?.data });
-        let chash_balace = 0;
-        res?.data?.data.map(
-          (item, index) => (chash_balace = chash_balace + item?.balance)
-        );
-        console.log("res", res?.data?.data);
-        this.setState({ Cash_Balance: chash_balace * 50 });
+        this.setState({ transaction: res?.data?.data });
+        console.log("transaction", res?.data?.data);
+      })
+      .catch((error) => {
+        // this.setState({ loadingg: false });
+        console.log("error", error?.response?.data);
+      });
+    get("wallet", {})
+      .then((res) => {
+        this.setState({
+          dataAsk: res?.data?.data,
+          Cash_Balance: res?.data?.totalBalance,
+        });
         this.setState({ loadingg: false });
       })
       .catch((error) => {
@@ -174,7 +172,7 @@ class ProtfolloValue extends React.Component {
               >
                 Protfolio Value
               </h1>
-              <div style={{ margin: 0, padding: 0, display: "flex" }}>
+              {/* <div style={{ margin: 0, padding: 0, display: "flex" }}>
                 <Button
                   onClick={() => this.setState({ showSendModal: true })}
                   textButton="Send"
@@ -193,7 +191,7 @@ class ProtfolloValue extends React.Component {
                   width={this.state.width > 900 ? this.state.width / 15 : 40}
                   fontSize={this.state.width > 900 ? this.state.width / 100 : 7}
                 />
-              </div>
+              </div> */}
             </div>
 
             {this.state.loadingg ? (
@@ -228,6 +226,7 @@ class ProtfolloValue extends React.Component {
                       style={{
                         fontSize:
                           this.state.width < 900 ? this.state.width / 30 : 30,
+                        marginLeft: 3,
                       }}
                     >
                       {this.state.Cash_Balance}
@@ -240,7 +239,7 @@ class ProtfolloValue extends React.Component {
           </div>
           <div
             className={style.form}
-            style={{ marginBottom: 20, paddingBottom: 10 }}
+            style={{ marginBottom: 20, paddingBottom: 5 }}
           >
             <div
               style={{
@@ -256,19 +255,22 @@ class ProtfolloValue extends React.Component {
               >
                 Latest Transactions
               </h1>
-              <h1
+              {/* <h1
                 style={{
                   fontSize: this.state.width < 900 ? this.state.width / 60 : 12,
                   opacity: 0.7,
                 }}
               >
                 See all
-              </h1>
+              </h1> */}
             </div>
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
+            <div style={{ maxHeight: 350, overflow: "auto" }}>
+              {this.state.transaction.length
+                ? this.state.transaction.map((item, index) => {
+                    return <Transaction key={index} data={item} />;
+                  })
+                : null}
+            </div>
           </div>
         </div>
         <Footer push={this.props.history.push} />

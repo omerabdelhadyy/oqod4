@@ -249,7 +249,7 @@ class SimpleTable extends React.Component {
                   fontSize: this.state.width < 700 ? this.state.width / 50 : 15,
                 }}
               >
-                tokenId
+                unit title
               </h1>
               <h1
                 style={{
@@ -258,9 +258,26 @@ class SimpleTable extends React.Component {
                   textAlign: "center",
                 }}
               >
-                balance
+                QTY
               </h1>
-              <h1 />
+              <h1
+                style={{
+                  fontSize: this.state.width < 700 ? this.state.width / 50 : 15,
+                  // backgroundColor: "red",
+                  textAlign: "center",
+                }}
+              >
+                PRICE
+              </h1>
+              <h1
+                style={{
+                  fontSize: this.state.width < 700 ? this.state.width / 50 : 15,
+                  // backgroundColor: "red",
+                  textAlign: "center",
+                }}
+              >
+                VALUE
+              </h1>
             </>
           ) : this.props.transaction ? (
             <>
@@ -406,7 +423,7 @@ class SimpleTable extends React.Component {
                           this.state.width < 700 ? this.state.width / 50 : 15,
                       }}
                     >
-                      {item?.tokenId}
+                      {item?.RealEstate?.title}
                     </h1>
                     <h1
                       style={{
@@ -416,9 +433,28 @@ class SimpleTable extends React.Component {
                         textAlign: "center",
                       }}
                     >
-                      {item?.balance}
+                      {item?.quantity} tokens
                     </h1>
-                    <h1 />
+                    <h1
+                      style={{
+                        fontSize:
+                          this.state.width < 700 ? this.state.width / 50 : 15,
+                        // backgroundColor: "red",
+                        textAlign: "center",
+                      }}
+                    >
+                      ${item?.RealEstate?.price}
+                    </h1>
+                    <h1
+                      style={{
+                        fontSize:
+                          this.state.width < 700 ? this.state.width / 50 : 15,
+                        // backgroundColor: "red",
+                        textAlign: "center",
+                      }}
+                    >
+                      ${item?.quantity * item?.RealEstate?.price}
+                    </h1>
                   </>
                 ) : this.props.transaction ? (
                   <>
@@ -484,8 +520,8 @@ class SimpleTable extends React.Component {
                       }}
                     >
                       {new Date(`${item?.createdAt}`)
-                        .toString()
-                        .substring(0, 15)}
+                        .toISOString()
+                        .substring(0, 10)}
                     </h1>
                     <h1
                       style={{
@@ -544,7 +580,7 @@ class SimpleTable extends React.Component {
                           fontSize:
                             this.state.width > 900 ? this.state.width / 80 : 7,
 
-                          paddingLeft: "5%",
+                          paddingLeft: "2%",
                         }}
                       >
                         {item?.status}
@@ -576,7 +612,7 @@ class SimpleTable extends React.Component {
                     ) : (
                       <div
                         style={{
-                          marginLeft: 25,
+                          marginLeft: 8,
                           display: "flex",
                           alignItems: "center",
                         }}
