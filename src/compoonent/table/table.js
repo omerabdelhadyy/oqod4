@@ -4,6 +4,7 @@ import ButtonCom from "../../compoonent/button";
 import { Modal } from "@material-ui/core";
 import { post } from "../../services/axios";
 import { getItem } from "../../services/storage";
+import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 
 class SimpleTable extends React.Component {
   constructor(props) {
@@ -261,6 +262,68 @@ class SimpleTable extends React.Component {
               </h1>
               <h1 />
             </>
+          ) : this.props.transaction ? (
+            <>
+              <h1
+                style={{
+                  fontSize: this.state.width < 700 ? this.state.width / 70 : 15,
+                  width: "20%",
+                  // backgroundColor: "red",
+                  textAlign: "left",
+                }}
+              >
+                BID
+              </h1>
+              <h1
+                style={{
+                  fontSize: this.state.width < 700 ? this.state.width / 70 : 15,
+                  // backgroundColor: "red",
+                  width: "20%",
+                }}
+              >
+                QTY
+              </h1>
+              <h1
+                style={{
+                  fontSize: this.state.width < 700 ? this.state.width / 70 : 15,
+                  // width: "15%",
+                  // backgroundColor: "red",
+                  width: "20%",
+                }}
+              >
+                OWNER USER
+              </h1>
+              <h1
+                style={{
+                  fontSize: this.state.width < 700 ? this.state.width / 70 : 15,
+                  width: "20%",
+                  // backgroundColor: "red",
+                  marginLeft: 20,
+                }}
+              >
+                BUYER USER
+              </h1>
+
+              <h1
+                style={{
+                  fontSize: this.state.width < 700 ? this.state.width / 70 : 15,
+                  width: "20%",
+                  // backgroundColor: "red",
+                }}
+              >
+                DATE
+              </h1>
+              <h1
+                style={{
+                  fontSize: this.state.width < 700 ? this.state.width / 70 : 15,
+                  width: "20%",
+                  // backgroundColor: "red",
+                  marginRight: 20,
+                }}
+              >
+                TIME
+              </h1>
+            </>
           ) : this.props?.incoming ? (
             <>
               <h1
@@ -357,6 +420,88 @@ class SimpleTable extends React.Component {
                     </h1>
                     <h1 />
                   </>
+                ) : this.props.transaction ? (
+                  <>
+                    <h1
+                      style={{
+                        // color: "#438F33",
+                        fontSize:
+                          this.state.width > 900 ? this.state.width / 80 : 7,
+                        width: "20%",
+                        // paddingLeft: "5%",
+                        textAlign: "left",
+                      }}
+                    >
+                      ${item?.price}
+                    </h1>
+                    <h1
+                      style={{
+                        fontSize:
+                          this.state.width < 700 ? this.state.width / 70 : 14,
+                        // backgroundColor: "red",
+                        width: "20%",
+                      }}
+                    >
+                      {item?.quantity} tokens
+                    </h1>
+                    <h1
+                      style={{
+                        fontSize:
+                          this.state.width < 700 ? this.state.width / 70 : 14,
+                        // backgroundColor: "red",
+                        width: "18.5%",
+                        paddingLeft: 15,
+                      }}
+                    >
+                      {item?.ownerUser?.name}
+                    </h1>
+                    <ArrowRightAltIcon
+                      color="#438F33"
+                      style={{ color: "#438F33" }}
+                    />
+                    <h1
+                      style={{
+                        fontSize:
+                          this.state.width < 700 ? this.state.width / 70 : 14,
+                        width: "20%",
+                        // backgroundColor: "red",
+                        // textAlign: "right",
+                      }}
+                    >
+                      {item?.buyerUser?.name}
+                      {/* {item?.price} */}
+                      {/* {item?.price} */}
+                    </h1>
+
+                    <h1
+                      style={{
+                        // color: "#438F33",
+                        fontSize:
+                          this.state.width > 900 ? this.state.width / 100 : 10,
+                        // backgroundColor: "red",
+                        // paddingLeft: "5%",
+                        width: "20%",
+                      }}
+                    >
+                      {new Date(`${item?.createdAt}`)
+                        .toString()
+                        .substring(0, 15)}
+                    </h1>
+                    <h1
+                      style={{
+                        // color: "#438F33",
+                        fontSize:
+                          this.state.width > 900 ? this.state.width / 100 : 10,
+                        // backgroundColor: "red",
+                        // paddingLeft: "5%",
+                        width: "20%",
+                      }}
+                    >
+                      {new Date(`${item?.createdAt}`)
+                        .toString()
+                        .substring(16, 21)}
+                    </h1>
+                  </>
                 ) : this.props?.incoming ? (
                   <>
                     <h1
@@ -389,7 +534,7 @@ class SimpleTable extends React.Component {
                         // textAlign: "right",
                       }}
                     >
-                      {item?.price}
+                      ${item?.price}
                       {/* {item?.price} */}
                     </h1>
                     {item?.status == "rejected" ? (
@@ -411,7 +556,7 @@ class SimpleTable extends React.Component {
                           fontSize:
                             this.state.width > 900 ? this.state.width / 80 : 7,
 
-                          paddingLeft: "5%",
+                          paddingLeft: "2%",
                         }}
                       >
                         {item?.status}
@@ -423,7 +568,7 @@ class SimpleTable extends React.Component {
                           fontSize:
                             this.state.width > 900 ? this.state.width / 80 : 7,
 
-                          paddingLeft: "5%",
+                          paddingLeft: "4%",
                         }}
                       >
                         {item?.status}

@@ -35,12 +35,20 @@ class HomeWorks extends React.Component {
       Message: "",
       incoming: [],
       outgoing: [],
-      dataAsk: [],
-      dataAsk2: [],
+      available: [],
+      transaction: [],
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
   componentDidMount = async () => {
+    get(`transaction/realEstate/${this.props?.location?.state.item?.id}`)
+      .then((res) => {
+        console.log("transaction", res?.data);
+        this.setState({ transaction: res?.data?.data });
+      })
+      .catch((error) => {
+        console.log("error", error?.response?.data);
+      });
     get(`offer/incoming/${this.props?.location?.state.item?.id}`)
       .then((res) => {
         console.log("incoming", res?.data);
@@ -60,7 +68,7 @@ class HomeWorks extends React.Component {
     get(`selling/available/${this.props?.location?.state.item?.id}`, {})
       .then((res) => {
         console.log("available", res?.data);
-        this.setState({ dataAsk: res?.data?.data });
+        this.setState({ available: res?.data?.data });
       })
       .catch((error) => {
         console.log("error", error?.response?.data);
@@ -263,25 +271,37 @@ class HomeWorks extends React.Component {
           <div className={style.divContiner}>
             <h1 style={{ fontSize: this.state.width / 60 }}>{item?.title}</h1>
             <div className={style.divAddress}>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <h1
+                  style={{
+                    fontSize: this.state.width / 70,
+                    margin: 0,
+                    padding: 0,
+                  }}
+                >
+                  Address:
+                </h1>
+                <p
+                  style={{
+                    fontSize: this.state.width / 80,
+                    padding: 0,
+                    margin: 0,
+                    marginLeft: 10,
+                  }}
+                >
+                  {item?.address}
+                </p>
+              </div>
               <h1
                 style={{
-                  fontSize: this.state.width / 70,
                   margin: 0,
                   padding: 0,
+                  marginRight: "10%",
+                  fontSize: this.state.width > 900 ? this.state.width / 70 : 12,
                 }}
               >
-                Address:
+                Token Price: ${this.props?.location?.state.item?.price}
               </h1>
-              <p
-                style={{
-                  fontSize: this.state.width / 80,
-                  padding: 0,
-                  margin: 0,
-                  marginLeft: 10,
-                }}
-              >
-                {item?.address}
-              </p>
             </div>
             <div
               style={{
@@ -310,7 +330,8 @@ class HomeWorks extends React.Component {
                     incoming
                     price={this.props?.location?.state.item?.price}
                     data={this.state.incoming}
-                    maxHeight={this.state.width / 4.3}
+                    height={this.state.width / 10}
+                    // maxHeight={this.state.width / 4.3}
                     width={this.state.width / 2.33}
                   />
                 </div>
@@ -344,7 +365,8 @@ class HomeWorks extends React.Component {
                     incoming
                     price={this.props?.location?.state.item?.price}
                     data={this.state.outgoing}
-                    maxHeight={this.state.width / 4.3}
+                    height={this.state.width / 10}
+                    // maxHeight={this.state.width / 4.3}
                     width={this.state.width / 2.8}
                   />
                 </div>
@@ -400,153 +422,35 @@ class HomeWorks extends React.Component {
                 </h1>
                 <TableRow
                   price={this.props?.location?.state.item?.price}
-                  data={this.state.dataAsk}
-                  height={this.state.width / 4.6}
+                  data={this.state.available}
+                  height={this.state.width / 4.45}
                 />
                 {/* </div> */}
-                {/* <h1
+              </div>
+            </div>
+            {this.state.transaction.length ? (
+              <>
+                <h1
                   style={{
-                    margin: 10,
+                    marginBottom: 10,
+                    marginLeft: 10,
                     fontSize: this.state.width / 85,
-                    paddingTop: "7%",
+                    padding: 0,
                   }}
                 >
                   Latest Transactions
                 </h1>
 
                 <TableRow
-                  data={this.state.dataAsk2}
-                  height={this.state.width / 16}
+                  transaction
+                  data={this.state.transaction}
+                  // maxHeight={this.state.width / 4.3}
+                  height={this.state.width / 8}
                   // height={40}
-                /> */}
-              </div>
-            </div>
-            <div className={style.divTokenPrice}>
-              <h1 style={{ marginTop: 0 }}>
-                Token Price: ${this.props?.location?.state.item?.price}
-              </h1>
-
-              {item?.userId == this?.state?.userData?.user?.id ? (
-                <ButtonCom
-                  textButton="Sell"
-                  onClick={() => this.setState({ visibleSell: true })}
-                  backgroundColor="#fff"
-                  color="#ae9b77"
-                  height={this.state.width > 900 ? this.state.width / 40 : 23}
-                  width={this.state.width > 900 ? this.state.width / 20 : 40}
-                  fontSize={this.state.width > 900 ? this.state.width / 105 : 7}
                 />
-              ) : (
-                <ButtonCom
-                  textButton="Buy"
-                  onClick={() => this.setState({ visibleBuy: true })}
-                  height={this.state.width > 900 ? this.state.width / 40 : 23}
-                  width={this.state.width > 900 ? this.state.width / 20 : 40}
-                  fontSize={this.state.width > 900 ? this.state.width / 105 : 7}
-                />
-              )}
-            </div>
-            {/* <div className={style.divSell}>
-              <div className={style.HeadDivSell}>
-                <div className={style.bodyDivSell}>
-                  <select
-                    name="Buy"
-                    id="Buy"
-                    style={{
-                      fontSize:
-                        this.state.width < 900 ? this.state.width / 60 : 13,
-                    }}
-                  >
-                    <option value="Buy">Buy</option>
-                    <option value="Sell">Sell</option>
-                  </select>
-                </div>
-                <div
-                  style={{
-                    textAlign: "center",
-                    width: "50%",
-                    // backgroundColor: "red",
-                  }}
-                >
-                  <h1
-                    style={{
-                      // height: "70%",
-                      fontSize:
-                        this.state.width < 700 ? this.state.width / 60 : 16,
-                      paddingBottom: 20,
-                    }}
-                  >
-                    QTY
-                  </h1>
-                  <input
-                    style={{
-                      width: this.state.width / 12,
-                      height:
-                        this.state.width < 700 ? this.state.width / 52 : 15,
-                    }}
-                  />
-                </div>
+              </>
+            ) : null}
 
-                <div
-                  style={{
-                    textAlign: "center",
-                    width: "70%",
-                    // backgroundColor: "red",
-                  }}
-                >
-                  <h1
-                    style={{
-                      paddingBottom: 20,
-                      // height: "70%",
-                      fontSize:
-                        this.state.width < 700 ? this.state.width / 60 : 16,
-                    }}
-                  >
-                    Price
-                  </h1>
-                  <div
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      // backgroundColor: "red",
-                      paddingLeft: 30,
-                    }}
-                  >
-                    <div className={style.divSelectYes}>
-                      <div
-                        style={{
-                          backgroundColor: "#B09E7A",
-                          height: "100%",
-                          width: "100%",
-                          borderRadius: 50,
-                        }}
-                      ></div>
-                    </div>
-                    <input
-                      style={{
-                        width: this.state.width / 12,
-                        height:
-                          this.state.width < 700 ? this.state.width / 52 : 15,
-                      }}
-                    />
-                    <p
-                      style={{
-                        marginLeft: 20,
-                        padding: 0,
-                        marginBlock: 0,
-                        // backgroundColor: "red",
-                        width: 200,
-                        textAlign: "left",
-                        fontSize:
-                          this.state.width < 700 ? this.state.width / 70 : 12,
-                      }}
-                    >
-                      Market Price
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div> */}
             <div className={style.Chart}>
               <Chart />
             </div>

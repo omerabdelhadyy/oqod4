@@ -13,6 +13,8 @@
   /* background-color: red; */
   margin-top: 15px;
   margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-between;
 }
 h1 {
   font-size: 24px;
@@ -35,6 +37,7 @@ div p {
   /* background-color: red; */
   /* height: 350px; */
   display: flex;
+  padding-bottom: 4%;
 }
 .divForm {
   border-radius: 10px;

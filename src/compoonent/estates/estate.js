@@ -51,7 +51,7 @@ class estate extends React.Component {
           />
           {/* <button className={style.ButtonList}>Buy</button> */}
         </div>
-        <div className={style.divProgressBar}>
+        {/* <div className={style.divProgressBar}>
           <ProgressBar
             completed={80}
             className={style.ProgressBar}
@@ -64,7 +64,7 @@ class estate extends React.Component {
             bgColor="#46DD67"
           />
           <h1 className={style.textProgress}>90%</h1>
-        </div>
+        </div> */}
       </div>
     );
   }
