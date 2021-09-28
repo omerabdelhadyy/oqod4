@@ -706,7 +706,7 @@ class SimpleTable extends React.Component {
                         // backgroundColor: "red",
                       }}
                     >
-                      {price}
+                      ${price}
                       {/* {item?.price} */}
                     </h1>
 
