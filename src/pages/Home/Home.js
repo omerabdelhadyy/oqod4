@@ -174,7 +174,7 @@ class Home extends React.Component {
             >
               <Loading />
             </div>
-          ) : (
+          ) : this.state.realEstate.length ? (
             <div className={style.estates}>
               {this.state?.realEstate?.map?.((item, index) => {
                 return (
@@ -193,6 +193,19 @@ class Home extends React.Component {
                 );
               })}
             </div>
+          ) : (
+            <h1
+              style={{
+                textAlign: "center",
+                margin: 0,
+                padding: 0,
+                marginTop: -14,
+                fontWeight: 500,
+                fontSize: this.state.width > 900 ? this.state.width / 100 : 7,
+              }}
+            >
+              No real estate available at the moment.
+            </h1>
           )}
           <div className={style.textabout}>
             <h1

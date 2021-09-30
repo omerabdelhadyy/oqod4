@@ -14,6 +14,7 @@ import { get, post } from "../../services/axios";
 import { getItem } from "../../services/storage";
 import ImageSlider from "ac-react-simple-image-slider";
 import ButtonCom from "../../compoonent/button";
+import Loading from "../../compoonent/loading";
 
 class HomeWorks extends React.Component {
   constructor() {
@@ -37,6 +38,8 @@ class HomeWorks extends React.Component {
       outgoing: [],
       available: [],
       transaction: [],
+      loadingg: true,
+      priceToken: null,
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
@@ -68,7 +71,11 @@ class HomeWorks extends React.Component {
     get(`selling/available/${this.props?.location?.state.item?.id}`, {})
       .then((res) => {
         console.log("available", res?.data);
-        this.setState({ available: res?.data?.data });
+        this.setState({
+          available: res?.data?.data,
+          loadingg: false,
+          priceToken: res?.data?.price,
+        });
       })
       .catch((error) => {
         console.log("error", error?.response?.data);
@@ -300,7 +307,7 @@ class HomeWorks extends React.Component {
                   fontSize: this.state.width > 900 ? this.state.width / 70 : 12,
                 }}
               >
-                Token Price: ${this.props?.location?.state.item?.price}
+                Token Price: ${this.state.priceToken}
               </h1>
             </div>
             <div
@@ -418,11 +425,22 @@ class HomeWorks extends React.Component {
                 >
                   incoming offers
                 </h1>
-                <TableRow
-                  price={this.props?.location?.state.item?.price}
-                  data={this.state.available}
-                  height={this.state.width / 4.45}
-                />
+                {this.state.loadingg ? (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Loading />
+                  </div>
+                ) : (
+                  <TableRow
+                    price={this.state.priceToken}
+                    data={this.state.available}
+                    height={this.state.width / 4.45}
+                  />
+                )}
                 {/* </div> */}
               </div>
             </div>

@@ -10,6 +10,7 @@ import Footer from "../../compoonent/footer";
 import WallpaperIcon from "@material-ui/icons/Wallpaper";
 import { get, post } from "../../services/axios";
 import { getItem } from "../../services/storage";
+import MapState from "../../compoonent/MapState";
 
 class addEstate extends React.Component {
   constructor() {
@@ -27,10 +28,12 @@ class addEstate extends React.Component {
       Area: "",
       tokenizationRatio: 3,
       errorMessage: null,
+      lat: 30.0384256,
+      lng: 31.1820288,
     };
   }
   componentDidMount = async () => {
-    console.log("userData", await getItem("userData").token);
+    console.log("userData", await getItem?.("userData")?.token);
   };
 
   picImage = () => {};
@@ -75,7 +78,7 @@ class addEstate extends React.Component {
       tokenizationRatio: Number(tokenizationRatio),
       price: Number(price),
     };
-    // console.log("test", body);
+    console.log("test", body);
     post("realEstate/create", body)
       .then((res) => {
         this.setState({ errorMessage: res?.data?.message });
@@ -104,20 +107,23 @@ class addEstate extends React.Component {
               value={(Title) => this.setState({ Title })}
             />
             <div style={{ width: "50%", margin: 30, marginBottom: 40 }}>
-              <Map
+              <MapState address={(address) => this.setState({ address })} />
+              {/* <Map
                 address={(address) => this.setState({ address })}
                 google={this?.props?.google}
                 center={{
-                  lat: 30.0384256,
-                  lng: 31.1820288,
+                  lat: this.state.lat,
+                  lng: this.state.lng,
                 }}
                 height="300px"
                 zoom={15}
-              />
+              /> */}
             </div>
             <TextField
               label="Description"
-              value={(Description) => this.setState({ Description })}
+              value={(Description) => {
+                this.setState({ Description });
+              }}
             />
             <div className={style.picImage}>
               <h1 className={style.textLabel}>Pictures</h1>

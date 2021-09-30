@@ -45,7 +45,7 @@ class Register extends React.Component {
       .catch((error) => {
         this.setState({
           errorMessage:
-            error.response.data?.data?.[0] || error?.response?.data.message,
+            error.response?.data?.data?.[0] || error?.response?.data.message,
         });
         console.log("error", error?.response?.data);
       });

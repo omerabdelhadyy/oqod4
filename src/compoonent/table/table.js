@@ -323,7 +323,7 @@ class SimpleTable extends React.Component {
                   fontSize: this.state.width < 700 ? this.state.width / 70 : 15,
                   width: "20%",
                   // backgroundColor: "red",
-                  marginLeft: 20,
+                  // marginLeft: 20,
                 }}
               >
                 BUYER USER
@@ -356,7 +356,7 @@ class SimpleTable extends React.Component {
                   textAlign: "left",
                   fontSize: this.state.width < 700 ? this.state.width / 70 : 12,
                   // backgroundColor: "red",
-                  width: "18%",
+                  width: "15%",
                 }}
               >
                 owner
@@ -376,6 +376,7 @@ class SimpleTable extends React.Component {
                   fontSize: this.state.width < 700 ? this.state.width / 70 : 12,
                   width: "15%",
                   // backgroundColor: "red",
+                  marginRight: 10,
                 }}
               >
                 price
@@ -496,8 +497,8 @@ class SimpleTable extends React.Component {
                         fontSize:
                           this.state.width < 700 ? this.state.width / 70 : 14,
                         // backgroundColor: "red",
-                        width: "18.5%",
-                        paddingLeft: 15,
+                        width: "20%",
+                        // paddingLeft: 15,
                       }}
                     >
                       {item?.ownerUser?.name}
@@ -513,6 +514,7 @@ class SimpleTable extends React.Component {
                         width: "20%",
                         // backgroundColor: "red",
                         // textAlign: "right",
+                        marginLeft: -10,
                       }}
                     >
                       {item?.buyerUser?.name}
@@ -542,6 +544,7 @@ class SimpleTable extends React.Component {
                         // backgroundColor: "red",
                         // paddingLeft: "5%",
                         width: "20%",
+                        marginRight: 20,
                       }}
                     >
                       {new Date(`${item?.createdAt}`)
@@ -557,7 +560,7 @@ class SimpleTable extends React.Component {
                         fontSize:
                           this.state.width < 700 ? this.state.width / 70 : 12,
                         // backgroundColor: "red",
-                        width: "18%",
+                        width: "15%",
                       }}
                     >
                       {item?.buyerUser?.name || item?.ownerUser?.name}
@@ -567,7 +570,7 @@ class SimpleTable extends React.Component {
                         fontSize:
                           this.state.width < 700 ? this.state.width / 70 : 12,
                         // backgroundColor: "red",
-                        width: "20%",
+                        width: "15%",
                       }}
                     >
                       {item?.quantity} tokens
@@ -576,7 +579,7 @@ class SimpleTable extends React.Component {
                       style={{
                         fontSize:
                           this.state.width < 700 ? this.state.width / 70 : 12,
-                        width: "8%",
+                        width: "15%",
                         // backgroundColor: "red",
                         // textAlign: "right",
                       }}

@@ -27,6 +27,8 @@
 .title {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 .title h1 {
   font-size: 14px;
@@ -39,6 +41,7 @@
   /* background-color: red; */
 }
 .disc {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   /* background-color: red; */

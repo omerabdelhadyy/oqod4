@@ -33,6 +33,9 @@ class Map extends React.Component {
   /**
    * Get the current address from the default map position and set those values in the state
    */
+  componentDidUpdate() {
+    return false;
+  }
   componentDidMount() {
     Geocode.fromLatLng(
       // 29.953442569330118,
@@ -70,8 +73,9 @@ class Map extends React.Component {
    * @return {boolean}
    */
   shouldComponentUpdate(nextProps, nextState) {
+    // return false;
     if (
-      this?.state?.markerPosition?.lat !== this?.props?.center?.lat ||
+      // this?.state?.markerPosition?.lat !== this?.props?.center?.lat
       this?.state?.address !== nextState?.address ||
       this?.state?.city !== nextState?.city ||
       this?.state?.area !== nextState?.area ||
@@ -146,9 +150,9 @@ class Map extends React.Component {
    * And function for city,state and address input
    * @param event
    */
-  onChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  // onChange = (event) => {
+  //   this.setState({ [event.target.name]: event.target.value });
+  // };
   /**
    * This Event triggers when the marker window is closed
    *
@@ -163,13 +167,14 @@ class Map extends React.Component {
    * @param event
    */
   onMarkerDragEnd = (event) => {
-    // console.log("event", event.latLng);
+    // this.setState({ address: "dmaodmpoa" });
+    console.log("onMarkerDragEnd", event.latLng.lat());
     let newLat = event.latLng.lat(),
       newLng = event.latLng.lng(),
       addressArray = [];
     Geocode.fromLatLng(newLat, newLng).then(
       (response) => {
-        // console.log("resss", response);
+        console.log("resss", response.results[0].formatted_address);
         this.props.address(response.results[0].formatted_address);
         const address = response.results[0].formatted_address,
           addressArray = response.results[0].address_components,
@@ -259,7 +264,7 @@ class Map extends React.Component {
         <GoogleMap
           google={this?.props?.google}
           defaultZoom={this?.props?.zoom}
-          defaultCenter={{
+          center={{
             lat: this?.state?.mapPosition?.lat,
             lng: this?.state?.mapPosition?.lng,
           }}
@@ -273,7 +278,9 @@ class Map extends React.Component {
             }}
           >
             {/* <div> */}
-            <span style={{ padding: 0, margin: 0 }}>{this.state.address}</span>
+            <span style={{ padding: 0, margin: 0 }}>
+              {this.state.address}omer
+            </span>
             {/* </div> */}
           </InfoWindow>
           <Marker
